@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import javafx.scene.layout.GridPane?>
+<AnchorPane prefHeight="1080.0" prefWidth="1920" stylesheets="@../css/Background.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.SceneController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#434343" height="1080" layoutX="1.0" layoutY="1.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
+        <GridPane alignment="CENTER" hgap="20" vgap="20">
+            <Button GridPane.rowIndex="0" GridPane.columnIndex="0" mnemonicParsing="false" onAction="#switchToSinglePlayer" prefHeight="65.0" prefWidth="250.0" stylesheets="@../css/Button.css" text="Single Player" />
+            <Button GridPane.rowIndex="1" GridPane.columnIndex="0" mnemonicParsing="false" onAction="#switchToMultiPlayer" prefHeight="65.0" prefWidth="250.0" stylesheets="@../css/Button.css" text="Multiplayer" />
+            <Button GridPane.rowIndex="2" GridPane.columnIndex="0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="65.0" prefWidth="250.0" stylesheets="@../css/Button.css" text="Back" />
+        </GridPane>
+    </children>
+</AnchorPane>
