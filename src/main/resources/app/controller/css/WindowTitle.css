@@ -1,0 +1,9 @@
+@font-face {
+    src: url("fonts/Lato-Bold.ttf");
+}
+
+.label {
+    -fx-font-family: "Lato Bold";
+    -fx-font-size: 80;
+    -fx-text-fill: #ffffff;
+}
