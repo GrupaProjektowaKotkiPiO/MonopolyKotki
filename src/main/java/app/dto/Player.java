@@ -6,6 +6,11 @@ public class Player {
     boolean inJail = false;
     int timeInJail = 0;
     private int money = 1500;
+
+    public Player(String name) {
+        this.name=name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
