@@ -1,0 +1,11 @@
+@font-face {
+    src: url("fonts/Lato-Bold.ttf");
+}
+
+.label {
+    -fx-font-family: "Lato Bold";
+    -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);
+    -fx-font-size: 18;
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+}

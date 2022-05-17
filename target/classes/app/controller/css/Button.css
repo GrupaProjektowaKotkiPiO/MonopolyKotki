@@ -10,9 +10,9 @@
     linear-gradient(#fff6f6 0%, #ffffff 50%, #ffffff 51%, #fff6f6 100%);
     -fx-background-insets: 0,1,4,5;
     -fx-background-radius: 9,8,5,4;
-    -fx-padding: 15 30 15 30;
+    -fx-padding: 8 20 8 20;
     -fx-font-family: "Lato Italic";
-    -fx-font-size: 25px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
     -fx-text-fill: #a4231a;
     -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
