@@ -64,7 +64,7 @@ public class SceneController {
     public void switchToMultiPlayer(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/MultiPlayer.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        ((GridPane) root.getChildren().get(4)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.9);
+        ((GridPane) root.getChildren().get(5)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.9);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
@@ -79,9 +79,10 @@ public class SceneController {
                 zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), false);
         });
 
-        ObservableList<Node> group3=((GridPane)root.getChildren().get(4)).getChildren();
-        ObservableList<Node> group2=((Group)root.getChildren().get(3)).getChildren();
-        (new MoveLogic(new TileController(), new PlayerController(group2), new DiceController(group3))).start();
+        ObservableList<Node> group4=((Group)root.getChildren().get(6)).getChildren();
+        ObservableList<Node> group3=((GridPane)root.getChildren().get(5)).getChildren();
+        ObservableList<Node> group2=((Group)root.getChildren().get(4)).getChildren();
+        (new MoveLogic(new TileController(), new PlayerController(group2), new DiceController(group3), new DisplayWindowController(group4))).start();
     }
 
     public void switchToSinglePlayer(ActionEvent event) throws IOException {

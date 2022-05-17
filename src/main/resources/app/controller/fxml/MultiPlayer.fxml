@@ -12,8 +12,9 @@
 <?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../css/Background.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.SceneController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#434343" height="1080" layoutX="1.0" layoutY="1.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" layoutX="30" layoutY="30" fill="#ffffff" height="745" opacity="0.4" strokeWidth="2" stroke="BLACK" strokeType="INSIDE" width="1163.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#434343" height="1080" layoutX="1.0" layoutY="1.0" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" layoutX="30" layoutY="30" fill="#dde5ff" height="745" opacity="0.4" width="1163.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" layoutX="1220" layoutY="30" fill="#ffffff" height="745" opacity="0.4"  width="275.0"/>
         <Group layoutX="-590.0" layoutY="-635.0" scaleX="0.35" scaleY="0.35">
             <children>
                 <Group layoutX="209.0" layoutY="44.0" stylesheets="@../css/Tile.css">
@@ -503,7 +504,27 @@
             </ImageView>
             <Button GridPane.rowIndex="23" GridPane.columnIndex="87" mnemonicParsing="false" stylesheets="@../css/Button.css" text="Show cards"/>
             <Button GridPane.rowIndex="24" GridPane.columnIndex="87" mnemonicParsing="false" stylesheets="@../css/Button.css" text="     Move     "/>
-            <Button GridPane.rowIndex="24" GridPane.columnIndex="102" mnemonicParsing="false" onAction="#switchToMenu" stylesheets="@../css/Button.css" text="Back"/>
+            <Button GridPane.rowIndex="23" GridPane.columnIndex="101" mnemonicParsing="false" onAction="#switchToMultiPlayer" stylesheets="@../css/Button.css" text="Restart"/>
+            <Button GridPane.rowIndex="24" GridPane.columnIndex="101" mnemonicParsing="false" onAction="#switchToMenu" stylesheets="@../css/Button.css" text="  Back  "/>
         </GridPane>
+        <Group layoutX="1235" layoutY="45">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#34dc22" height="185" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="185.0" layoutX="32" layoutY="32"/>
+            <Label stylesheets="@../css/Button.css" layoutX="73" layoutY="42"  text="Your turn!" />
+            <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../css/images/Frame.png" />
+                </image>
+            </ImageView>
+            <ImageView layoutX="65" layoutY="80" fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../css/images/Kotek_1.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="280.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="true" layoutX="33" layoutY="280">
+                <image>
+                    <Image url="@../css/images/Card_Piotrkowska.png" />
+                </image>
+            </ImageView>
+        </Group>
     </children>
 </AnchorPane>

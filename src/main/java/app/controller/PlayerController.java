@@ -12,9 +12,9 @@ public class PlayerController {
     public PlayerController(ObservableList<Node> group2) {
         players=new Player[4];
         players[0]=new Player(PlayerType.PLAYER1,"Szymon","Jakubaszek",(ImageView)group2.get(0));
-        players[1]=new Player(PlayerType.PLAYER1,"Daria","Glińska",(ImageView)group2.get(1));
-        players[2]=new Player(PlayerType.PLAYER1,"Maciej","Sierzputowski",(ImageView)group2.get(2));
-        players[3]=new Player(PlayerType.PLAYER1,"Robert","Banasiak",(ImageView)group2.get(3));
+        players[1]=new Player(PlayerType.PLAYER2,"Daria","Glińska",(ImageView)group2.get(1));
+        players[2]=new Player(PlayerType.PLAYER3,"Maciej","Sierzputowski",(ImageView)group2.get(2));
+        players[3]=new Player(PlayerType.PLAYER4,"Robert","Banasiak",(ImageView)group2.get(3));
     }
 
     public void moveThePlayer(PlayerType type, int paddingType, double[][] padding) {
