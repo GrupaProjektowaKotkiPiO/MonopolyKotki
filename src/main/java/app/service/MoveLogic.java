@@ -1,9 +1,6 @@
 package app.service;
 
-import app.controller.DiceController;
-import app.controller.DisplayWindowController;
-import app.controller.PlayerController;
-import app.controller.TileController;
+import app.controller.*;
 import app.dto.PlayerType;
 import javafx.scene.control.Button;
 
@@ -12,14 +9,19 @@ public class MoveLogic {
     private PlayerController playerController;
     private DiceController diceController;
     private DisplayWindowController displayWindowController;
+    private StatisticsController statisticsController;
     private int currentPlayer;
-    private PlayerType temp;
 
-    public MoveLogic(TileController inputTileController, PlayerController inputPlayerController, DiceController inputDiceController, DisplayWindowController inputDisplayWindowController) {
+    public MoveLogic(TileController inputTileController,
+                     PlayerController inputPlayerController,
+                     DiceController inputDiceController,
+                     DisplayWindowController inputDisplayWindowController,
+                     StatisticsController inputStatisticsController) {
         this.tileController = inputTileController;
         this.playerController = inputPlayerController;
         this.diceController = inputDiceController;
         this.displayWindowController = inputDisplayWindowController;
+        this.statisticsController = inputStatisticsController;
         currentPlayer=3;
     }
 
@@ -31,28 +33,17 @@ public class MoveLogic {
     }
 
     private void move(Button player, PlayerType type) {
-        int i;
-        switch (type) {
-            case PLAYER1:
-                i = 0;
-                break;
-            case PLAYER2:
-                i = 1;
-                break;
-            case PLAYER3:
-                i = 2;
-                break;
-            default:
-                i = 3;
-        }
+        int i=type.ordinal();
 
         player.setOnMousePressed(e -> {
             if(currentPlayer==3)
                 currentPlayer=-1;
             if(currentPlayer+1==i) {
                 playerController.getPlayers()[i].setPosition(playerController.getPlayers()[i].getPosition() + diceController.throwTheDice());
-                if (playerController.getPlayers()[i].getPosition() >= 40)
+                if (playerController.getPlayers()[i].getPosition() >= 40) {
                     playerController.getPlayers()[i].setPosition(playerController.getPlayers()[i].getPosition() % 10);
+                    playerController.getPlayers()[i].setMoney(playerController.getPlayers()[i].getMoney()+200);
+                }
 
                 if (playerController.getPlayers()[i].getPosition() >= 0 && playerController.getPlayers()[i].getPosition() < 10)
                     playerController.moveThePlayer(type, 0, tileController.getPading());
@@ -64,10 +55,18 @@ public class MoveLogic {
                     playerController.moveThePlayer(type, 3, tileController.getPading());
                 currentPlayer=i;
 
-                if(currentPlayer==3)
+                statisticsController.
+                        action(playerController.getPlayers()[currentPlayer],
+                        tileController.getBoard()[playerController.getPlayers()[currentPlayer].getPosition()]);
+
+                if(currentPlayer==3) {
                     displayWindowController.changePlayerInWindow(playerController.getPlayers()[0].getType());
-                else
+                }
+                else {
                     displayWindowController.changePlayerInWindow(playerController.getPlayers()[currentPlayer+1].getType());
+                }
+
+                displayWindowController.changeCardInWindow(playerController.getPlayers()[currentPlayer].getPosition());
             }
         });
     }

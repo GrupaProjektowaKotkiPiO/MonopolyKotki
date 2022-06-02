@@ -3,34 +3,23 @@ package app.controller;
 import app.dto.Player;
 import app.dto.PlayerType;
 import javafx.collections.ObservableList;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 
 public class PlayerController {
     private Player[] players;
 
-    public PlayerController(ObservableList<Node> group2) {
+    public PlayerController(Group playersGroup) {
         players=new Player[4];
-        players[0]=new Player(PlayerType.PLAYER1,"Szymon","Jakubaszek",(ImageView)group2.get(0));
-        players[1]=new Player(PlayerType.PLAYER2,"Daria","Glińska",(ImageView)group2.get(1));
-        players[2]=new Player(PlayerType.PLAYER3,"Maciej","Sierzputowski",(ImageView)group2.get(2));
-        players[3]=new Player(PlayerType.PLAYER4,"Robert","Banasiak",(ImageView)group2.get(3));
+        players[0]=new Player(PlayerType.PLAYER1,(ImageView)playersGroup.getChildren().get(0));
+        players[1]=new Player(PlayerType.PLAYER2,(ImageView)playersGroup.getChildren().get(1));
+        players[2]=new Player(PlayerType.PLAYER3,(ImageView)playersGroup.getChildren().get(2));
+        players[3]=new Player(PlayerType.PLAYER4,(ImageView)playersGroup.getChildren().get(3));
     }
 
     public void moveThePlayer(PlayerType type, int paddingType, double[][] padding) {
-        switch (type) {
-            case PLAYER1:
-                setPositionOnBoard(players[0], paddingType, padding);
-                break;
-            case PLAYER2:
-                setPositionOnBoard(players[1], paddingType, padding);
-                break;
-            case PLAYER3:
-                setPositionOnBoard(players[2], paddingType, padding);
-                break;
-            default:
-                setPositionOnBoard(players[3], paddingType, padding);
-        }
+        setPositionOnBoard(players[type.ordinal()], paddingType, padding);
     }
 
     private void setPositionOnBoard(Player player, int paddingType, double[][] padding) {

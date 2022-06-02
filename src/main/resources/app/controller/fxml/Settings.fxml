@@ -10,15 +10,15 @@
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#434343" height="1080" layoutX="1.0" layoutY="1.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
         <GridPane alignment="CENTER" hgap="20" vgap="20">
-            <Label GridPane.rowIndex="0" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Game description" />
-            <Label GridPane.rowIndex="1" GridPane.columnIndex="0" stylesheets="@../css/DescriptionBody.css" text="Simple monopoly game based on board version rules. Player can choose between Single Player&#10;and Multiplayer mode. Bit the computer or human opponent and have fun!" />
-            <Label GridPane.rowIndex="2" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Version" />
+            <Label GridPane.rowIndex="0" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Opis gry" />
+            <Label GridPane.rowIndex="1" GridPane.columnIndex="0" stylesheets="@../css/DescriptionBody.css" text="Klasyczna wersja planszowej gry monopoly, która zapewnia wiele emocji i pozytywnych przeżyć.&#10;Pokonaj przeciwników i zostań mistrzem monopoly." />
+            <Label GridPane.rowIndex="2" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Wersja" />
             <Label GridPane.rowIndex="3" GridPane.columnIndex="0" stylesheets="@../css/DescriptionBody.css" text="2.1.1" />
-            <Label GridPane.rowIndex="4" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Author" />
+            <Label GridPane.rowIndex="4" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Autorzy" />
             <Label GridPane.rowIndex="5" GridPane.columnIndex="0" stylesheets="@../css/DescriptionBody.css" text="Szymon Jakubaszek, Daria Glińska, Maciej Sierzputowski" />
         </GridPane>
         <GridPane alignment="BOTTOM_RIGHT" hgap="20" vgap="20">
-            <Button GridPane.rowIndex="0" GridPane.columnIndex="0"  mnemonicParsing="false" onAction="#switchToMenu" stylesheets="@../css/Button.css" text="Back"/>
+            <Button GridPane.rowIndex="0" GridPane.columnIndex="0"  mnemonicParsing="false" onAction="#switchToMenu" stylesheets="@../css/Button.css" text="Wróć"/>
         </GridPane>
     </children>
 </AnchorPane>
