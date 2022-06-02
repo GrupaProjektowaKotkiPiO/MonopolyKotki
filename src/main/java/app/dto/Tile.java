@@ -2,8 +2,7 @@ package app.dto;
 
 public class Tile {
     private TileType type;
-    private PlayerType player;
-    private PlayerType owner;
+    private Player owner;
     String name;
     private int price;
 
@@ -15,7 +14,7 @@ public class Tile {
 
     public boolean hasOwner() { return owner != null; }
 
-    public boolean hasPlayer() {return player != null; }
+    public Player getOwner() { return owner;}
 
     public TileType getType() { return type; }
 
@@ -23,11 +22,5 @@ public class Tile {
 
     public int getPrice() { return price; }
 
-    public PlayerType getPlayer() { return player; }
-
-    public PlayerType getOwner() { return owner; }
-
-    public void setPlayer(PlayerType player) { this.player = player; }
-
-    public void setOwner(PlayerType owner) { this.owner = owner; }
+    public void setOwner(Player owner) { this.owner = owner; }
 }

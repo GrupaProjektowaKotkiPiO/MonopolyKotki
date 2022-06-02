@@ -27,10 +27,9 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Pane root;
-    private Dice diceLeft;
-    private Dice diceRight;
+    private boolean[] tempWindowVisible;
 
-    public void switchToMenu(ActionEvent event) throws IOException, IOException {
+    public void switchToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/Menu.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ((GridPane) root.getChildren().get(1)).setPrefSize(stage.getWidth(), stage.getHeight());
@@ -41,13 +40,51 @@ public class SceneController {
     }
 
     public void switchToGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/Game.fxml"));
+        root = FXMLLoader.load(getClass().getResource("fxml/MultiPlayer.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        ((GridPane) root.getChildren().get(1)).setPrefSize(stage.getWidth(), stage.getHeight());
+        ((GridPane) root.getChildren().get(6)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.9);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
+        tempWindowVisible=new boolean[2];
+
+        root.setOnScroll(e -> {
+            double zoomFactor = 1.5;
+            if (e.getDeltaY() <= 0) {
+                zoomFactor = 1 / zoomFactor;
+                zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), true);
+            } else
+                zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), false);
+        });
+
+        Group payPanel=(Group) root.getChildren().get(10);
+        Group buyPanel=(Group) root.getChildren().get(9);
+        Group statisticsPanel=(Group) root.getChildren().get(8);
+        Group handleWindow=(Group) root.getChildren().get(7);
+        GridPane diceAndMoveGroup=(GridPane) root.getChildren().get(6);
+        Group players=(Group) root.getChildren().get(5);
+
+        diceAndMoveGroup.getChildren().get(10).setOnMousePressed(e -> {
+            statisticsPanel.setVisible(true);
+            setTempWindowVisible(buyPanel.isVisible(),0);
+            setTempWindowVisible(payPanel.isVisible(), 1);
+            buyPanel.setVisible(false);
+            payPanel.setVisible(false);
+        });
+
+        statisticsPanel.getChildren().get(6).setOnMousePressed(e -> {
+            statisticsPanel.setVisible(false);
+            buyPanel.setVisible(getTempWindowVisible(0));
+            payPanel.setVisible(getTempWindowVisible(1));
+        });
+
+        (new MoveLogic(new TileController(),
+                new PlayerController(players),
+                new DiceController(diceAndMoveGroup),
+                new DisplayWindowController(handleWindow),
+                new StatisticsController(statisticsPanel,buyPanel,payPanel,handleWindow)))
+                .start();
     }
 
     public void switchToSettings(ActionEvent event) throws IOException {
@@ -61,41 +98,7 @@ public class SceneController {
         stage.centerOnScreen();
     }
 
-    public void switchToMultiPlayer(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/MultiPlayer.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        ((GridPane) root.getChildren().get(5)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.9);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
-
-        root.setOnScroll(e -> {
-            double zoomFactor = 1.5;
-            if (e.getDeltaY() <= 0) {
-                zoomFactor = 1 / zoomFactor;
-                zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), true);
-            } else
-                zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), false);
-        });
-
-        ObservableList<Node> group4=((Group)root.getChildren().get(6)).getChildren();
-        ObservableList<Node> group3=((GridPane)root.getChildren().get(5)).getChildren();
-        ObservableList<Node> group2=((Group)root.getChildren().get(4)).getChildren();
-        (new MoveLogic(new TileController(), new PlayerController(group2), new DiceController(group3), new DisplayWindowController(group4))).start();
-    }
-
-    public void switchToSinglePlayer(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/SinglePlayer.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        ((GridPane) root.getChildren().get(2)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.90);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
-    }
-
-    public void switchToQuit(ActionEvent event) {
+    public void switchToQuit() {
         Platform.exit();
         System.exit(0);
     }
@@ -125,4 +128,8 @@ public class SceneController {
         node.setScaleY(scale);
         node.getTransforms().setAll(new Scale(scale, scale));
     }
+
+    private void setTempWindowVisible(boolean value, int i) { tempWindowVisible[i]=value; }
+
+    private boolean getTempWindowVisible(int i) { return tempWindowVisible[i]; }
 }

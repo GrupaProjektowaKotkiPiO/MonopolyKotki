@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.dto.Player;
 import app.dto.Tile;
 import app.dto.TileType;
 
@@ -86,4 +87,5 @@ public class TileController {
     public Tile[] getBoard() { return board; }
 
     public double[][] getPading() { return pading; }
+
 }

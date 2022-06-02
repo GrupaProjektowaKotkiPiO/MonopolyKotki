@@ -1,5 +1,6 @@
 package app.dto;
 
 public enum PlayerType {
-    PLAYER1,PLAYER2,PLAYER3,PLAYER4
+    PLAYER1(1),PLAYER2(2),PLAYER3(3),PLAYER4(4);
+    PlayerType(int i) {}
 }
