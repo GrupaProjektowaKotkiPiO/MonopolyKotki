@@ -39,7 +39,7 @@ public class StatisticsController {
         skip=(Button) inputBuyPanel.getChildren().get(4);
     }
 
-    public void action(Player player,Tile tile) {
+    public void action(Player player,Tile tile, BuyHotelWindowController buyHotelWindowController, BuyHomeWindowController buyHomeWindowController) {
         if(tile.getType()==TileType.START ||
                 tile.getType()==TileType.JUST_VISITING ||
                 tile.getType()==TileType.FREE_PARKING ||
@@ -55,9 +55,21 @@ public class StatisticsController {
 
         setPlayerOnHandleWindow(player.getType().ordinal()+1);
 
-        boolean result=buy(player,tile);
-        if(!result) {
-            pay(player,tile);
+        if(!tile.hasOwner()) {
+            buy(player, tile);
+            return;
+        }
+
+        if(player == tile.getOwner()) {
+            if(tile.getHomeCounter() < 3) {
+                buyHomeWindowController.show(tile);
+            }
+            else if(tile.getHotelCounter() == 0) {
+                buyHotelWindowController.show(tile);
+            }
+        }
+        else {
+            pay(player, tile);
         }
     }
 

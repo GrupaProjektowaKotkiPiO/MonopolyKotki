@@ -1476,5 +1476,43 @@
                 <Label layoutX="671.0" layoutY="450.0" stylesheets="@../css/DescriptionTitle.css" text="+200 €" />
             </children>
         </Group>
+      <Group layoutX="37.0" layoutY="40.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+            <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/ChoosePanel.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="506.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/house.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
+            <Button alignment="CENTER" layoutX="433.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Kup dom" />
+            <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Pomiń" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić dom?" textAlignment="CENTER" />
+         </children>
+      </Group>
+      <Group layoutX="47.0" layoutY="50.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+            <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/ChoosePanel.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="506.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/hotel.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
+            <Button alignment="CENTER" layoutX="433.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Kup hotel" />
+            <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Pomiń" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić hotel?" textAlignment="CENTER" />
+         </children>
+      </Group>
     </children>
 </AnchorPane>

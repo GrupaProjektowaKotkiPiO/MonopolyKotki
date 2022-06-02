@@ -58,12 +58,15 @@ public class SceneController {
                 zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), false);
         });
 
+        Group buyHotel = (Group) root.getChildren().get(12);
+        Group buyHome = (Group) root.getChildren().get(11);
         Group payPanel=(Group) root.getChildren().get(10);
         Group buyPanel=(Group) root.getChildren().get(9);
         Group statisticsPanel=(Group) root.getChildren().get(8);
         Group handleWindow=(Group) root.getChildren().get(7);
         GridPane diceAndMoveGroup=(GridPane) root.getChildren().get(6);
         Group players=(Group) root.getChildren().get(5);
+        Group tiles = (Group) root.getChildren().get(4);
 
         diceAndMoveGroup.getChildren().get(10).setOnMousePressed(e -> {
             statisticsPanel.setVisible(true);
@@ -79,11 +82,13 @@ public class SceneController {
             payPanel.setVisible(getTempWindowVisible(1));
         });
 
-        (new MoveLogic(new TileController(),
+        (new MoveLogic(new TileController(tiles),
                 new PlayerController(players),
                 new DiceController(diceAndMoveGroup),
                 new DisplayWindowController(handleWindow),
-                new StatisticsController(statisticsPanel,buyPanel,payPanel,handleWindow)))
+                new StatisticsController(statisticsPanel,buyPanel,payPanel,handleWindow),
+                new BuyHotelWindowController(buyHotel),
+                new BuyHomeWindowController(buyHome)))
                 .start();
     }
 
