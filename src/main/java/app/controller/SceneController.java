@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.dto.Player;
 import app.service.MoveLogic;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -8,6 +9,8 @@ import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Scale;
@@ -18,6 +21,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SceneController {
+    public Group gameSummary;
     private Stage stage;
     private Scene scene;
     private Pane root;
@@ -131,4 +135,32 @@ public class SceneController {
     private void setTempWindowVisible(boolean value, int i) { tempWindowVisible[i]=value; }
 
     private boolean getTempWindowVisible(int i) { return tempWindowVisible[i]; }
+
+    public void showGameSummary(ActionEvent actionEvent) {
+        Player[] players = PlayerController.getPlayers();
+
+        int n = PlayerController.PLAYERS_NUMBER;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (players[j].getScore() < players[j + 1].getScore()) {
+                    Player temp = players[j];
+                    players[j] = players[j + 1];
+                    players[j + 1] = temp;
+                }
+            }
+        }
+
+        ((ImageView) gameSummary.getChildren().get(4)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + (players[0].getType().ordinal() + 1) + ".png"))));
+
+        ((ImageView) gameSummary.getChildren().get(5)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + (players[1].getType().ordinal() + 1) + ".png"))));
+
+
+        ((ImageView) gameSummary.getChildren().get(6)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + (players[2].getType().ordinal() + 1) + ".png"))));
+
+
+        gameSummary.setVisible(true);
+    }
 }

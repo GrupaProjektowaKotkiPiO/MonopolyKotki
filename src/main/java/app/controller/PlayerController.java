@@ -6,10 +6,10 @@ import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 
 public class PlayerController {
-    private final Player[] players;
+    public static final int PLAYERS_NUMBER = 4;
+    private static final Player[] players = new Player[PLAYERS_NUMBER];
 
     public PlayerController(Group playersGroup) {
-        players=new Player[4];
         players[0]=new Player(PlayerType.PLAYER1,(ImageView)playersGroup.getChildren().get(0));
         players[1]=new Player(PlayerType.PLAYER2,(ImageView)playersGroup.getChildren().get(1));
         players[2]=new Player(PlayerType.PLAYER3,(ImageView)playersGroup.getChildren().get(2));
@@ -25,5 +25,5 @@ public class PlayerController {
         player.getPlayerOnBoard().setLayoutY(padding[paddingType][2] + padding[paddingType][3]*(player.getPosition()%10));
     }
 
-    public Player[] getPlayers() { return players; }
+    public static Player[] getPlayers() { return players; }
 }

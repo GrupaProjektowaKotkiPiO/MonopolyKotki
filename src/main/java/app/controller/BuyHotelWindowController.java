@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.dto.Player;
 import app.dto.Tile;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -11,10 +12,10 @@ public class BuyHotelWindowController {
         this.buyHotel = buyHotel;
     }
 
-    public void show(Tile tile) {
+    public void show(Player player, Tile tile) {
         buyHotel.setVisible(true);
 
-        buyHotelButtonAction(tile);
+        buyHotelButtonAction(player, tile);
 
         skipButtonAction();
     }
@@ -23,18 +24,21 @@ public class BuyHotelWindowController {
         ((Button) buyHotel.getChildren().get(5)).setOnAction(e -> buyHotel.setVisible(false));
     }
 
-    private void buyHotelButtonAction(Tile tile) {
+    private void buyHotelButtonAction(Player player, Tile tile) {
         ((Button) buyHotel.getChildren().get(4)).setOnAction(e -> {
-            // todo -> oplaty za hotel
 
             tile.setHotelCounter(1);
-            tile.setRent(tile.getRent() + 100);
+            tile.setHotelRent(tile.getRent() + 100);
 
             tile.getTileGroup().getChildren().get(4).setVisible(false);
             tile.getTileGroup().getChildren().get(5).setVisible(true);
 
-            buyHotel.setVisible(false);
+            player.setMoney(player.getMoney() - tile.getHotelCost());
+            player.setCardsCounter(player.getCardsCounter() + 1);
+            tile.setOwner(player);
+            StatisticsController.displayPlayerBudget(player);
 
+            buyHotel.setVisible(false);
         });
     }
 }

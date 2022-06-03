@@ -19,7 +19,7 @@ public class StatisticsController {
     public static final int BLANK_CARD_NUMBER = 400;
     private final ImageView[][] cards;
     private final int[][] cardsIndexes = new int[PLAYERS_NUMBER][TILES_POSSIBLE_TO_BUY];
-    private final Label[] priceLabels;
+    private static final Label[] priceLabels = new Label[PLAYERS_NUMBER];
     private final Group buyPanel;
     private final Group payPanel;
     private final Group handleWindow;
@@ -28,7 +28,6 @@ public class StatisticsController {
 
     StatisticsController(Group inputStatisticsGroup,Group inputBuyPanel,Group inputPayPanel,Group inputHandleWindow) {
         cards = new ImageView[PLAYERS_NUMBER][TILES_POSSIBLE_TO_BUY];
-        priceLabels = new Label[PLAYERS_NUMBER];
         buyPanel = inputBuyPanel;
         payPanel = inputPayPanel;
         handleWindow = inputHandleWindow;
@@ -76,11 +75,11 @@ public class StatisticsController {
         // jeśli to nie jest jego pole to musi komuś płacić
         // pole które rozważamy zawsze ma właściciela (patrz poprzedni if)
         if(player == tile.getOwner()) {
-            if(tile.getType().toString().contains("NORMAL") && player.getMoney() > tile.getPrice()) {
-                if (tile.getHomeCounter() < 3) {
-                    buyHomeWindowController.show(tile);
-                } else if (tile.getHotelCounter() == 0) {
-                    buyHotelWindowController.show(tile);
+            if(tile.getType().toString().contains("NORMAL")) {
+                if (tile.getHomeCounter() < 3 && player.getMoney() > tile.getHomeCost()) {
+                    buyHomeWindowController.show(player, tile);
+                } else if (tile.getHotelCounter() == 0 && player.getMoney() > tile.getHotelCost()) {
+                    buyHotelWindowController.show(player, tile);
                 }
             }
         }
@@ -98,6 +97,7 @@ public class StatisticsController {
                         setImage(new Image(Objects.requireNonNull(getClass().
                                 getResourceAsStream("css/images/Cards/Card" + player.getPosition() + ".png"))));
 
+                // sortowanie kart kolorami
                 // żeby stacje kolejowe się sortowały ich numer jest ustawiany w konwencji: NUMER_KARTY * 10
                 if(tile.getType().toString().contains("RAILROAD")){
                     cardsIndexes[player.getType().ordinal()][player.getCardsCounter()] = player.getPosition() * 10;
@@ -151,11 +151,11 @@ public class StatisticsController {
             setPlayerOnPanePanel(5,player.getType().ordinal()+1);
             setPlayerOnPanePanel(7,tile.getOwner().getType().ordinal()+1);
 
-            ((Label) payPanel.getChildren().get(6)).setText("-"+tile.getPrice()+" €");
-            ((Label) payPanel.getChildren().get(8)).setText("+"+tile.getPrice()+" €");
+            ((Label) payPanel.getChildren().get(6)).setText("-"+tile.getCurrentRent()+" €");
+            ((Label) payPanel.getChildren().get(8)).setText("+"+tile.getCurrentRent()+" €");
 
-            player.setMoney(player.getMoney()-tile.getPrice());
-            tile.getOwner().setMoney(tile.getOwner().getMoney()+tile.getPrice());
+            player.setMoney(player.getMoney()-tile.getCurrentRent());
+            tile.getOwner().setMoney(tile.getOwner().getMoney()+tile.getCurrentRent());
             displayPlayerBudget(player);
             displayPlayerBudget(tile.getOwner());
 
@@ -173,15 +173,15 @@ public class StatisticsController {
                 getResourceAsStream("css/images/Kotek_" + playerID + ".png"))));
     }
 
-    private void displayPlayerBudget(Player player) {
+    public static void displayPlayerBudget(Player player) {
         if (player.getMoney() >= 1000)
             priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else if (player.getMoney() >= 100)
-            priceLabels[player.getType().ordinal()].setText("0"+player.getMoney()+" €");
+            priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else if (player.getMoney() >= 10)
-            priceLabels[player.getType().ordinal()].setText("00"+player.getMoney()+" €");
+            priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else if (player.getMoney() >= 0)
-            priceLabels[player.getType().ordinal()].setText("000"+player.getMoney()+" €");
+            priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else
             priceLabels[player.getType().ordinal()].setText("Debet!");
     }

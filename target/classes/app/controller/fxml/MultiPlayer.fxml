@@ -1027,7 +1027,7 @@
             <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="85" GridPane.rowIndex="28" />
 
                                     <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120" stylesheets="@../css/Button.css" text="Statystyki" GridPane.columnIndex="99" GridPane.rowIndex="28" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="29" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#showGameSummary" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="29" />
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
@@ -1209,7 +1209,7 @@
                                         <Image url="@../css/images/Kotek_1.png" />
                                     </image>
                                 </ImageView>
-                                <Label layoutX="93.0" layoutY="44.0" stylesheets="@../css/Button.css" text="1000 €" />
+                                <Label alignment="CENTER" layoutX="60.0" layoutY="37.0" prefHeight="32.0" prefWidth="133.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
                             </children>
                         </Group>
                     </children>
@@ -1229,7 +1229,7 @@
                                         <Image url="@../css/images/Kotek_2.png" />
                                     </image>
                                 </ImageView>
-                                <Label layoutX="93.0" layoutY="44.0" stylesheets="@../css/Button.css" text="1000 €" />
+                                <Label alignment="CENTER" layoutX="62.0" layoutY="38.0" prefHeight="32.0" prefWidth="134.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
                             </children>
                         </Group>
                     </children>
@@ -1249,7 +1249,7 @@
                                         <Image url="@../css/images/Kotek_3.png" />
                                     </image>
                                 </ImageView>
-                                <Label layoutX="93.0" layoutY="44.0" stylesheets="@../css/Button.css" text="1000 €" />
+                                <Label alignment="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="32.0" prefWidth="146.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
                             </children>
                         </Group>
                     </children>
@@ -1269,7 +1269,7 @@
                                         <Image url="@../css/images/Kotek_4.png" />
                                     </image>
                                 </ImageView>
-                                <Label layoutX="93.0" layoutY="44.0" stylesheets="@../css/Button.css" text="1000 €" />
+                                <Label alignment="CENTER" layoutX="58.0" layoutY="39.0" prefHeight="32.0" prefWidth="142.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
                             </children>
                         </Group>
                     </children>
@@ -1903,6 +1903,37 @@
             <Button alignment="CENTER" layoutX="433.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Kup hotel" />
             <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Pomiń" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić hotel?" textAlignment="CENTER" />
+         </children>
+      </Group>
+        <Group fx:id="gameSummary" layoutX="27.0" layoutY="30.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+            <ImageView fitHeight="300.0" fitWidth="344.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/Winners.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.39" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="344.0" />
+            <ImageView fitHeight="234.0" fitWidth="225.0" layoutX="444.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+                 <Image url="@../css/images/Podium.png" />
+             </image>
+            </ImageView>
+            <ImageView fitHeight="87.0" fitWidth="99.0" layoutX="513.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/Kotek_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="69.0" fitWidth="80.0" layoutX="444.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/Kotek_2.png" />
+               </image>
+            </ImageView><ImageView fitHeight="69.0" fitWidth="80.0" layoutX="600.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../css/images/Kotek_3.png" />
+                </image>
+            </ImageView>
+            <Button alignment="CENTER" onAction="#switchToMenu" layoutX="493.0" layoutY="471.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
          </children>
       </Group>
     </children>

@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.dto.Player;
 import app.dto.Tile;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -11,8 +12,8 @@ public class BuyHomeWindowController {
         this.buyHome = buyHome;
     }
 
-    public void show(Tile tile) {
-        buyHomeButtonAction(tile);
+    public void show(Player player, Tile tile) {
+        buyHomeButtonAction(player, tile);
 
         skipButtonAction();
 
@@ -23,9 +24,8 @@ public class BuyHomeWindowController {
         ((Button) buyHome.getChildren().get(5)).setOnAction(e -> buyHome.setVisible(false));
     }
 
-    private void buyHomeButtonAction(Tile tile) {
+    private void buyHomeButtonAction(Player player, Tile tile) {
         ((Button) buyHome.getChildren().get(4)).setOnAction(e -> {
-            // todo -> oplaty za domy
 
             Group houses = (Group) tile.getTileGroup().getChildren().get(4);
 
@@ -44,7 +44,12 @@ public class BuyHomeWindowController {
             }
 
             tile.setHomeCounter(tile.getHomeCounter() + 1);
-            tile.setRent(tile.getRent() + 20 * tile.getHomeCounter());
+            tile.setHomeRent(tile.getRent() + 20 * tile.getHomeCounter());
+
+            player.setMoney(player.getMoney() - tile.getHomeCost());
+            player.setCardsCounter(player.getCardsCounter() + 1);
+            tile.setOwner(player);
+            StatisticsController.displayPlayerBudget(player);
 
             buyHome.setVisible(false);
         });
