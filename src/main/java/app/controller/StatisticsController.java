@@ -16,7 +16,9 @@ import java.util.Objects;
 public class StatisticsController {
     public static final int PLAYERS_NUMBER = 4;
     public static final int TILES_POSSIBLE_TO_BUY = 26;
+    public static final int BLANK_CARD_NUMBER = 400;
     private final ImageView[][] cards;
+    private final int[][] cardsIndexes = new int[PLAYERS_NUMBER][TILES_POSSIBLE_TO_BUY];
     private final Label[] priceLabels;
     private final Group buyPanel;
     private final Group payPanel;
@@ -36,6 +38,7 @@ public class StatisticsController {
                 ScrollPane scrollPane = (ScrollPane)inputStatisticsGroup.getChildren().get(7 + i);
                 AnchorPane anchorPane = ((AnchorPane)scrollPane.getContent());
                 cards[i][j] = (ImageView) anchorPane.getChildren().get(j);
+                cardsIndexes[i][j] = BLANK_CARD_NUMBER;
             }
         }
 
@@ -95,6 +98,16 @@ public class StatisticsController {
                         setImage(new Image(Objects.requireNonNull(getClass().
                                 getResourceAsStream("css/images/Cards/Card" + player.getPosition() + ".png"))));
 
+                // żeby stacje kolejowe się sortowały ich numer jest ustawiany w konwencji: NUMER_KARTY * 10
+                if(tile.getType().toString().contains("RAILROAD")){
+                    cardsIndexes[player.getType().ordinal()][player.getCardsCounter()] = player.getPosition() * 10;
+                }
+                else {
+                    cardsIndexes[player.getType().ordinal()][player.getCardsCounter()] = player.getPosition();
+                }
+                sortCardsIndexes(player.getType().ordinal());
+                setImages(player.getType().ordinal());
+
                 player.setMoney(player.getMoney()-tile.getPrice());
                 player.setCardsCounter(player.getCardsCounter()+1);
                 tile.setOwner(player);
@@ -103,6 +116,31 @@ public class StatisticsController {
             });
 
             skip.setOnMousePressed(e -> mainWindowOn());
+        }
+    }
+
+    private void sortCardsIndexes(int playerIndex) {
+        for (int i = 0; i < TILES_POSSIBLE_TO_BUY - 1; i++)
+            for (int j = 0; j < TILES_POSSIBLE_TO_BUY - i - 1; j++)
+                if (cardsIndexes[playerIndex][j] > cardsIndexes[playerIndex][j + 1]) {
+                    int temp = cardsIndexes[playerIndex][j];
+                    cardsIndexes[playerIndex][j] = cardsIndexes[playerIndex][j + 1];
+                    cardsIndexes[playerIndex][j + 1] = temp;
+                }
+    }
+
+    public void setImages(int playerIndex) {
+        for (int i = 0; i < TILES_POSSIBLE_TO_BUY && cardsIndexes[playerIndex][i] != BLANK_CARD_NUMBER; i++) {
+            if(cardsIndexes[playerIndex][i] > 40) {
+                cards[playerIndex][i].
+                        setImage(new Image(Objects.requireNonNull(getClass().
+                                getResourceAsStream("css/images/Cards/Card" + cardsIndexes[playerIndex][i] / 10 + ".png"))));
+            }
+            else {
+                cards[playerIndex][i].
+                        setImage(new Image(Objects.requireNonNull(getClass().
+                                getResourceAsStream("css/images/Cards/Card" + cardsIndexes[playerIndex][i] + ".png"))));
+            }
         }
     }
 

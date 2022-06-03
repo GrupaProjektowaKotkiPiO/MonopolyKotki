@@ -1193,7 +1193,7 @@
                         <Image url="@../css/images/Statistics.png" />
                     </image>
                 </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="1080" layoutX="0.0" layoutY="30" opacity="0.2" width="1920.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="1080" layoutY="30" opacity="0.2" width="1920.0" />
             <Group layoutX="100.0" layoutY="3.0" scaleX="0.7" scaleY="0.7">
                     <children>
                         <Group>
