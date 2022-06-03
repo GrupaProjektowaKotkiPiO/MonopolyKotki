@@ -6,12 +6,16 @@ import app.dto.TileType;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.Objects;
 
 public class StatisticsController {
+    public static final int PLAYERS_NUMBER = 4;
+    public static final int TILES_POSSIBLE_TO_BUY = 26;
     private final ImageView[][] cards;
     private final Label[] priceLabels;
     private final Group buyPanel;
@@ -21,19 +25,21 @@ public class StatisticsController {
     private final Button skip;
 
     StatisticsController(Group inputStatisticsGroup,Group inputBuyPanel,Group inputPayPanel,Group inputHandleWindow) {
-        cards=new ImageView[4][8];
-        priceLabels=new Label[4];
-        buyPanel =inputBuyPanel;
-        payPanel=inputPayPanel;
-        handleWindow=inputHandleWindow;
+        cards = new ImageView[PLAYERS_NUMBER][TILES_POSSIBLE_TO_BUY];
+        priceLabels = new Label[PLAYERS_NUMBER];
+        buyPanel = inputBuyPanel;
+        payPanel = inputPayPanel;
+        handleWindow = inputHandleWindow;
 
-        for (int i=0,k=2; i<4; i++,k++) {
-            for(int j=0,l=1; j<8; j++,l++) {
-                cards[i][j]=(ImageView) ((Group) inputStatisticsGroup.getChildren().get(k)).getChildren().get(l);
+        for (int i = 0; i < PLAYERS_NUMBER; i++) {
+            for(int j = 0; j < TILES_POSSIBLE_TO_BUY; j++) {
+                ScrollPane scrollPane = (ScrollPane)inputStatisticsGroup.getChildren().get(7 + i);
+                AnchorPane anchorPane = ((AnchorPane)scrollPane.getContent());
+                cards[i][j] = (ImageView) anchorPane.getChildren().get(j);
             }
         }
 
-        for (int i=0,k=2; i<4; i++,k++) {
+        for (int i = 0,k = 2; i < PLAYERS_NUMBER; i++,k++) {
             priceLabels[i]=(Label) ((Group) ((Group) inputStatisticsGroup.getChildren().get(k)).getChildren().get(0)).getChildren().get(3);
         }
 
@@ -67,7 +73,7 @@ public class StatisticsController {
         // jeśli to nie jest jego pole to musi komuś płacić
         // pole które rozważamy zawsze ma właściciela (patrz poprzedni if)
         if(player == tile.getOwner()) {
-            if(tile.getType().toString().contains("NORMAL")) {
+            if(tile.getType().toString().contains("NORMAL") && player.getMoney() > tile.getPrice()) {
                 if (tile.getHomeCounter() < 3) {
                     buyHomeWindowController.show(tile);
                 } else if (tile.getHotelCounter() == 0) {
@@ -81,7 +87,7 @@ public class StatisticsController {
     }
 
     private void buy(Player player, Tile tile) {
-        if(!tile.hasOwner() && player.getCardsCounter()<8 && player.getMoney()>tile.getPrice()) {
+        if(!tile.hasOwner() && player.getMoney()>tile.getPrice()) {
             mainWindowOff(tile.hasOwner());
 
             buy.setOnMousePressed(e -> {
