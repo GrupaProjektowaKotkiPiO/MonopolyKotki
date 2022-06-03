@@ -1126,8 +1126,8 @@
             <ColumnConstraints />
             <ColumnConstraints />
             <ColumnConstraints />
-            <ColumnConstraints minWidth="25.0" />
-            <ColumnConstraints minWidth="10.0" />
+            <ColumnConstraints />
+            <ColumnConstraints />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints />

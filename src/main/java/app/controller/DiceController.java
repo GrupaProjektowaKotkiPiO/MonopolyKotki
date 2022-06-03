@@ -2,18 +2,17 @@ package app.controller;
 
 import app.dto.Dice;
 import app.dto.DiceType;
-import javafx.collections.ObservableList;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
+import java.util.Objects;
+
 public class DiceController {
-    private Button[] moveButtons;
-    private Dice diceLeft;
-    private Dice diceRight;
+    private final Button[] moveButtons;
+    private final Dice diceLeft;
+    private final Dice diceRight;
 
     public DiceController(GridPane diceAndMoveGroup) {
         diceLeft = new Dice(DiceType.LEFT, (ImageView) diceAndMoveGroup.getChildren().get(4));
@@ -29,8 +28,8 @@ public class DiceController {
     public int throwTheDice() {
         diceLeft.throwTheDice();
         diceRight.throwTheDice();
-        diceLeft.getDiceTile().setImage(new Image(getClass().getResourceAsStream("css/images/Dice_"+diceLeft.getResultOfThrowingDice()+".png")));
-        diceRight.getDiceTile().setImage(new Image(getClass().getResourceAsStream("css/images/Dice_"+diceRight.getResultOfThrowingDice()+".png")));
+        diceLeft.getDiceTile().setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("css/images/Dice_" + diceLeft.getResultOfThrowingDice() + ".png"))));
+        diceRight.getDiceTile().setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("css/images/Dice_" + diceRight.getResultOfThrowingDice() + ".png"))));
 
         return diceLeft.getResultOfThrowingDice()+diceRight.getResultOfThrowingDice();
     }

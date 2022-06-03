@@ -9,14 +9,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Objects;
+
 public class StatisticsController {
-    private ImageView[][] cards;
-    private Label[] priceLabels;
-    private Group buyPanel;
-    private Group payPanel;
-    private Group handleWindow;
-    private Button buy;
-    private Button skip;
+    private final ImageView[][] cards;
+    private final Label[] priceLabels;
+    private final Group buyPanel;
+    private final Group payPanel;
+    private final Group handleWindow;
+    private final Button buy;
+    private final Button skip;
 
     StatisticsController(Group inputStatisticsGroup,Group inputBuyPanel,Group inputPayPanel,Group inputHandleWindow) {
         cards=new ImageView[4][8];
@@ -78,14 +80,14 @@ public class StatisticsController {
         }
     }
 
-    private boolean buy(Player player, Tile tile) {
+    private void buy(Player player, Tile tile) {
         if(!tile.hasOwner() && player.getCardsCounter()<8 && player.getMoney()>tile.getPrice()) {
             mainWindowOff(tile.hasOwner());
 
             buy.setOnMousePressed(e -> {
                 cards[player.getType().ordinal()][player.getCardsCounter()].
-                        setImage(new Image(getClass().
-                                getResourceAsStream("css/images/Cards/Card"+player.getPosition()+".png")));
+                        setImage(new Image(Objects.requireNonNull(getClass().
+                                getResourceAsStream("css/images/Cards/Card" + player.getPosition() + ".png"))));
 
                 player.setMoney(player.getMoney()-tile.getPrice());
                 player.setCardsCounter(player.getCardsCounter()+1);
@@ -94,14 +96,8 @@ public class StatisticsController {
                 mainWindowOn();
             });
 
-            skip.setOnMousePressed(e -> {
-                mainWindowOn();
-            });
-
-            return true;
+            skip.setOnMousePressed(e -> mainWindowOn());
         }
-
-        return false;
     }
 
     private void pay(Player player, Tile tile) {
@@ -119,20 +115,18 @@ public class StatisticsController {
             displayPlayerBudget(player);
             displayPlayerBudget(tile.getOwner());
 
-            payPanel.getChildren().get(3).setOnMousePressed(e -> {
-                mainWindowOn();
-            });
+            payPanel.getChildren().get(3).setOnMousePressed(e -> mainWindowOn());
         }
     }
 
     private void setPlayerOnPanePanel(int nodeID,int playerID) {
-        ((ImageView) payPanel.getChildren().get(nodeID)).setImage(new Image(getClass().
-                getResourceAsStream("css/images/Kotek_"+playerID+".png")));
+        ((ImageView) payPanel.getChildren().get(nodeID)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + playerID + ".png"))));
     }
 
     private void setPlayerOnHandleWindow(int playerID) {
-        ((ImageView) handleWindow.getChildren().get(5)).setImage(new Image(getClass().
-                getResourceAsStream("css/images/Kotek_"+playerID+".png")));
+        ((ImageView) handleWindow.getChildren().get(5)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + playerID + ".png"))));
     }
 
     private void displayPlayerBudget(Player player) {

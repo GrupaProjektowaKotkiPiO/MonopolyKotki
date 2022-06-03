@@ -20,9 +20,7 @@ public class BuyHotelWindowController {
     }
 
     private void skipButtonAction() {
-        ((Button) buyHotel.getChildren().get(5)).setOnAction(e -> {
-            buyHotel.setVisible(false);
-        });
+        ((Button) buyHotel.getChildren().get(5)).setOnAction(e -> buyHotel.setVisible(false));
     }
 
     private void buyHotelButtonAction(Tile tile) {
@@ -30,6 +28,7 @@ public class BuyHotelWindowController {
             // todo -> oplaty za hotel
 
             tile.setHotelCounter(1);
+            tile.setRent(tile.getRent() + 100);
 
             tile.getTileGroup().getChildren().get(4).setVisible(false);
             tile.getTileGroup().getChildren().get(5).setVisible(true);

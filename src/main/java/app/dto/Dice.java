@@ -5,8 +5,8 @@ import javafx.scene.image.ImageView;
 import java.util.Random;
 
 public class Dice {
-    private ImageView diceTile;
-    private DiceType type;
+    private final ImageView diceTile;
+    private final DiceType type;
     private int resultOfThrowingDice;
 
     public Dice(DiceType inputType, ImageView inputDiceTile) {

@@ -1,20 +1,13 @@
 package app.controller;
 
-import app.dto.Dice;
-import app.dto.DiceType;
-import app.dto.Tile;
 import app.service.MoveLogic;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Scale;
@@ -22,6 +15,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SceneController {
     private Stage stage;
@@ -30,7 +24,7 @@ public class SceneController {
     private boolean[] tempWindowVisible;
 
     public void switchToMenu(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/Menu.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/Menu.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ((GridPane) root.getChildren().get(1)).setPrefSize(stage.getWidth(), stage.getHeight());
         scene = new Scene(root);
@@ -40,7 +34,7 @@ public class SceneController {
     }
 
     public void switchToGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/MultiPlayer.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/MultiPlayer.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ((GridPane) root.getChildren().get(6)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.9);
         scene = new Scene(root);
@@ -93,7 +87,7 @@ public class SceneController {
     }
 
     public void switchToSettings(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/Settings.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/Settings.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ((GridPane) root.getChildren().get(1)).setPrefSize(stage.getWidth(), stage.getHeight());
         ((GridPane) root.getChildren().get(2)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.90);

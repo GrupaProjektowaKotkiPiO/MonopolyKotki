@@ -5,13 +5,13 @@ import app.dto.PlayerType;
 import javafx.scene.control.Button;
 
 public class MoveLogic {
-    private TileController tileController;
-    private PlayerController playerController;
-    private DiceController diceController;
-    private DisplayWindowController displayWindowController;
-    private StatisticsController statisticsController;
-    private BuyHotelWindowController buyHotelWindowController;
-    private BuyHomeWindowController buyHomeWindowController;
+    private final TileController tileController;
+    private final PlayerController playerController;
+    private final DiceController diceController;
+    private final DisplayWindowController displayWindowController;
+    private final StatisticsController statisticsController;
+    private final BuyHotelWindowController buyHotelWindowController;
+    private final BuyHomeWindowController buyHomeWindowController;
     private int currentPlayer;
 
     public MoveLogic(TileController inputTileController,

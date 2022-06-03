@@ -2,13 +2,11 @@ package app.controller;
 
 import app.dto.Player;
 import app.dto.PlayerType;
-import javafx.collections.ObservableList;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 
 public class PlayerController {
-    private Player[] players;
+    private final Player[] players;
 
     public PlayerController(Group playersGroup) {
         players=new Player[4];

@@ -20,9 +20,7 @@ public class BuyHomeWindowController {
     }
 
     private void skipButtonAction() {
-        ((Button) buyHome.getChildren().get(5)).setOnAction(e -> {
-            buyHome.setVisible(false);
-        });
+        ((Button) buyHome.getChildren().get(5)).setOnAction(e -> buyHome.setVisible(false));
     }
 
     private void buyHomeButtonAction(Tile tile) {
@@ -46,6 +44,7 @@ public class BuyHomeWindowController {
             }
 
             tile.setHomeCounter(tile.getHomeCounter() + 1);
+            tile.setRent(tile.getRent() + 20 * tile.getHomeCounter());
 
             buyHome.setVisible(false);
         });
