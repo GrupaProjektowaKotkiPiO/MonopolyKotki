@@ -60,12 +60,17 @@ public class StatisticsController {
             return;
         }
 
+        // nie usuwać zagnieżdżenia ifów! musi być tak zagnieżdżone, bo:
+        // jeśli to jest jego pole i jest to pole normalne to może kupić dom/hotel
+        // jeśli to nie jest jego pole to musi komuś płacić
+        // pole które rozważamy zawsze ma właściciela (patrz poprzedni if)
         if(player == tile.getOwner()) {
-            if(tile.getHomeCounter() < 3) {
-                buyHomeWindowController.show(tile);
-            }
-            else if(tile.getHotelCounter() == 0) {
-                buyHotelWindowController.show(tile);
+            if(tile.getType().toString().contains("NORMAL")) {
+                if (tile.getHomeCounter() < 3) {
+                    buyHomeWindowController.show(tile);
+                } else if (tile.getHotelCounter() == 0) {
+                    buyHotelWindowController.show(tile);
+                }
             }
         }
         else {
