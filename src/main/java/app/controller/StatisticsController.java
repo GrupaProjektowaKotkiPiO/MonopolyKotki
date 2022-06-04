@@ -6,32 +6,42 @@ import app.dto.TileType;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+
+import java.util.Objects;
 
 public class StatisticsController {
-    private ImageView[][] cards;
-    private Label[] priceLabels;
-    private Group buyPanel;
-    private Group payPanel;
-    private Group handleWindow;
-    private Button buy;
-    private Button skip;
+    public static final int PLAYERS_NUMBER = 4;
+    public static final int TILES_POSSIBLE_TO_BUY = 26;
+    public static final int BLANK_CARD_NUMBER = 400;
+    private final ImageView[][] cards;
+    private final int[][] cardsIndexes = new int[PLAYERS_NUMBER][TILES_POSSIBLE_TO_BUY];
+    private static final Label[] priceLabels = new Label[PLAYERS_NUMBER];
+    private final Group buyPanel;
+    private final Group payPanel;
+    private final Group handleWindow;
+    private final Button buy;
+    private final Button skip;
 
     StatisticsController(Group inputStatisticsGroup,Group inputBuyPanel,Group inputPayPanel,Group inputHandleWindow) {
-        cards=new ImageView[4][8];
-        priceLabels=new Label[4];
-        buyPanel =inputBuyPanel;
-        payPanel=inputPayPanel;
-        handleWindow=inputHandleWindow;
+        cards = new ImageView[PLAYERS_NUMBER][TILES_POSSIBLE_TO_BUY];
+        buyPanel = inputBuyPanel;
+        payPanel = inputPayPanel;
+        handleWindow = inputHandleWindow;
 
-        for (int i=0,k=2; i<4; i++,k++) {
-            for(int j=0,l=1; j<8; j++,l++) {
-                cards[i][j]=(ImageView) ((Group) inputStatisticsGroup.getChildren().get(k)).getChildren().get(l);
+        for (int i = 0; i < PLAYERS_NUMBER; i++) {
+            for(int j = 0; j < TILES_POSSIBLE_TO_BUY; j++) {
+                ScrollPane scrollPane = (ScrollPane)inputStatisticsGroup.getChildren().get(7 + i);
+                AnchorPane anchorPane = ((AnchorPane)scrollPane.getContent());
+                cards[i][j] = (ImageView) anchorPane.getChildren().get(j);
+                cardsIndexes[i][j] = BLANK_CARD_NUMBER;
             }
         }
 
-        for (int i=0,k=2; i<4; i++,k++) {
+        for (int i = 0,k = 2; i < PLAYERS_NUMBER; i++,k++) {
             priceLabels[i]=(Label) ((Group) ((Group) inputStatisticsGroup.getChildren().get(k)).getChildren().get(0)).getChildren().get(3);
         }
 
@@ -39,7 +49,7 @@ public class StatisticsController {
         skip=(Button) inputBuyPanel.getChildren().get(4);
     }
 
-    public void action(Player player,Tile tile) {
+    public void action(Player player,Tile tile, BuyHotelWindowController buyHotelWindowController, BuyHomeWindowController buyHomeWindowController) {
         if(tile.getType()==TileType.START ||
                 tile.getType()==TileType.JUST_VISITING ||
                 tile.getType()==TileType.FREE_PARKING ||
@@ -55,20 +65,48 @@ public class StatisticsController {
 
         setPlayerOnHandleWindow(player.getType().ordinal()+1);
 
-        boolean result=buy(player,tile);
-        if(!result) {
-            pay(player,tile);
+        if(!tile.hasOwner()) {
+            buy(player, tile);
+            return;
+        }
+
+        // nie usuwać zagnieżdżenia ifów! musi być tak zagnieżdżone, bo:
+        // jeśli to jest jego pole i jest to pole normalne to może kupić dom/hotel
+        // jeśli to nie jest jego pole to musi komuś płacić
+        // pole które rozważamy zawsze ma właściciela (patrz poprzedni if)
+        if(player == tile.getOwner()) {
+            if(tile.getType().toString().contains("NORMAL")) {
+                if (tile.getHomeCounter() < 3 && player.getMoney() > tile.getHomeCost()) {
+                    buyHomeWindowController.show(player, tile);
+                } else if (tile.getHotelCounter() == 0 && player.getMoney() > tile.getHotelCost()) {
+                    buyHotelWindowController.show(player, tile);
+                }
+            }
+        }
+        else {
+            pay(player, tile);
         }
     }
 
-    private boolean buy(Player player, Tile tile) {
-        if(!tile.hasOwner() && player.getCardsCounter()<8 && player.getMoney()>tile.getPrice()) {
+    private void buy(Player player, Tile tile) {
+        if(!tile.hasOwner() && player.getMoney()>tile.getPrice()) {
             mainWindowOff(tile.hasOwner());
 
             buy.setOnMousePressed(e -> {
                 cards[player.getType().ordinal()][player.getCardsCounter()].
-                        setImage(new Image(getClass().
-                                getResourceAsStream("css/images/Cards/Card"+player.getPosition()+".png")));
+                        setImage(new Image(Objects.requireNonNull(getClass().
+                                getResourceAsStream("css/images/Cards/Card" + player.getPosition() + ".png"))));
+
+                // sortowanie kart kolorami
+                // żeby stacje kolejowe się sortowały ich numer jest ustawiany w konwencji: NUMER_KARTY * 10
+                if(tile.getType().toString().contains("RAILROAD")){
+                    cardsIndexes[player.getType().ordinal()][player.getCardsCounter()] = player.getPosition() * 10;
+                }
+                else {
+                    cardsIndexes[player.getType().ordinal()][player.getCardsCounter()] = player.getPosition();
+                }
+                sortCardsIndexes(player.getType().ordinal());
+                setImages(player.getType().ordinal());
 
                 player.setMoney(player.getMoney()-tile.getPrice());
                 player.setCardsCounter(player.getCardsCounter()+1);
@@ -77,14 +115,33 @@ public class StatisticsController {
                 mainWindowOn();
             });
 
-            skip.setOnMousePressed(e -> {
-                mainWindowOn();
-            });
-
-            return true;
+            skip.setOnMousePressed(e -> mainWindowOn());
         }
+    }
 
-        return false;
+    private void sortCardsIndexes(int playerIndex) {
+        for (int i = 0; i < TILES_POSSIBLE_TO_BUY - 1; i++)
+            for (int j = 0; j < TILES_POSSIBLE_TO_BUY - i - 1; j++)
+                if (cardsIndexes[playerIndex][j] > cardsIndexes[playerIndex][j + 1]) {
+                    int temp = cardsIndexes[playerIndex][j];
+                    cardsIndexes[playerIndex][j] = cardsIndexes[playerIndex][j + 1];
+                    cardsIndexes[playerIndex][j + 1] = temp;
+                }
+    }
+
+    public void setImages(int playerIndex) {
+        for (int i = 0; i < TILES_POSSIBLE_TO_BUY && cardsIndexes[playerIndex][i] != BLANK_CARD_NUMBER; i++) {
+            if(cardsIndexes[playerIndex][i] > 40) {
+                cards[playerIndex][i].
+                        setImage(new Image(Objects.requireNonNull(getClass().
+                                getResourceAsStream("css/images/Cards/Card" + cardsIndexes[playerIndex][i] / 10 + ".png"))));
+            }
+            else {
+                cards[playerIndex][i].
+                        setImage(new Image(Objects.requireNonNull(getClass().
+                                getResourceAsStream("css/images/Cards/Card" + cardsIndexes[playerIndex][i] + ".png"))));
+            }
+        }
     }
 
     private void pay(Player player, Tile tile) {
@@ -94,39 +151,37 @@ public class StatisticsController {
             setPlayerOnPanePanel(5,player.getType().ordinal()+1);
             setPlayerOnPanePanel(7,tile.getOwner().getType().ordinal()+1);
 
-            ((Label) payPanel.getChildren().get(6)).setText("-"+tile.getPrice()+" €");
-            ((Label) payPanel.getChildren().get(8)).setText("+"+tile.getPrice()+" €");
+            ((Label) payPanel.getChildren().get(6)).setText("-"+tile.getCurrentRent()+" €");
+            ((Label) payPanel.getChildren().get(8)).setText("+"+tile.getCurrentRent()+" €");
 
-            player.setMoney(player.getMoney()-tile.getPrice());
-            tile.getOwner().setMoney(tile.getOwner().getMoney()+tile.getPrice());
+            player.setMoney(player.getMoney()-tile.getCurrentRent());
+            tile.getOwner().setMoney(tile.getOwner().getMoney()+tile.getCurrentRent());
             displayPlayerBudget(player);
             displayPlayerBudget(tile.getOwner());
 
-            payPanel.getChildren().get(3).setOnMousePressed(e -> {
-                mainWindowOn();
-            });
+            payPanel.getChildren().get(3).setOnMousePressed(e -> mainWindowOn());
         }
     }
 
     private void setPlayerOnPanePanel(int nodeID,int playerID) {
-        ((ImageView) payPanel.getChildren().get(nodeID)).setImage(new Image(getClass().
-                getResourceAsStream("css/images/Kotek_"+playerID+".png")));
+        ((ImageView) payPanel.getChildren().get(nodeID)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + playerID + ".png"))));
     }
 
     private void setPlayerOnHandleWindow(int playerID) {
-        ((ImageView) handleWindow.getChildren().get(5)).setImage(new Image(getClass().
-                getResourceAsStream("css/images/Kotek_"+playerID+".png")));
+        ((ImageView) handleWindow.getChildren().get(5)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + playerID + ".png"))));
     }
 
-    private void displayPlayerBudget(Player player) {
+    public static void displayPlayerBudget(Player player) {
         if (player.getMoney() >= 1000)
             priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else if (player.getMoney() >= 100)
-            priceLabels[player.getType().ordinal()].setText("0"+player.getMoney()+" €");
+            priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else if (player.getMoney() >= 10)
-            priceLabels[player.getType().ordinal()].setText("00"+player.getMoney()+" €");
+            priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else if (player.getMoney() >= 0)
-            priceLabels[player.getType().ordinal()].setText("000"+player.getMoney()+" €");
+            priceLabels[player.getType().ordinal()].setText(player.getMoney()+" €");
         else
             priceLabels[player.getType().ordinal()].setText("Debet!");
     }

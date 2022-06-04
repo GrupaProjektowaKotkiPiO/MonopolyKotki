@@ -3,20 +3,16 @@ package app.dto;
 import javafx.scene.image.ImageView;
 
 public class Player {
-    PlayerType type;
-    String firstName;
-    String lastName;
-    private ImageView playerOnBoard;
-    private int position;
-    private int cardsCounter;
-    private int money;
+    private final PlayerType type;
+    private final ImageView playerOnBoard;
+    private int position = 0;
+    private int cardsCounter = 0;
+    private int money = 1000;
+    private int score;
 
     public Player(PlayerType inputType, ImageView inputPlayerOnBoard) {
         type = inputType;
         playerOnBoard=inputPlayerOnBoard;
-        position=0;
-        cardsCounter=0;
-        money=1000;
     }
 
     public PlayerType getType() {
@@ -38,4 +34,18 @@ public class Player {
     public int getCardsCounter() { return cardsCounter; }
 
     public void setCardsCounter(int cardsCounter) { this.cardsCounter = cardsCounter; }
+
+    public void countScore() {
+        if(money <= 0) {
+            score = 0;
+        }
+        else {
+            score = money + cardsCounter * 100;
+        }
+    }
+
+    public int getScore() {
+        countScore();
+        return score;
+    }
 }

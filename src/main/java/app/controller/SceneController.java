@@ -1,18 +1,14 @@
 package app.controller;
 
-import app.dto.Dice;
-import app.dto.DiceType;
-import app.dto.Tile;
+import app.dto.Player;
 import app.service.MoveLogic;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -22,15 +18,17 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SceneController {
+    public Group gameSummary;
     private Stage stage;
     private Scene scene;
     private Pane root;
     private boolean[] tempWindowVisible;
 
     public void switchToMenu(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/Menu.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/Menu.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ((GridPane) root.getChildren().get(1)).setPrefSize(stage.getWidth(), stage.getHeight());
         scene = new Scene(root);
@@ -40,7 +38,7 @@ public class SceneController {
     }
 
     public void switchToGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/MultiPlayer.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/MultiPlayer.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ((GridPane) root.getChildren().get(6)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.9);
         scene = new Scene(root);
@@ -58,12 +56,15 @@ public class SceneController {
                 zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), false);
         });
 
+        Group buyHotel = (Group) root.getChildren().get(12);
+        Group buyHome = (Group) root.getChildren().get(11);
         Group payPanel=(Group) root.getChildren().get(10);
         Group buyPanel=(Group) root.getChildren().get(9);
         Group statisticsPanel=(Group) root.getChildren().get(8);
         Group handleWindow=(Group) root.getChildren().get(7);
         GridPane diceAndMoveGroup=(GridPane) root.getChildren().get(6);
         Group players=(Group) root.getChildren().get(5);
+        Group tiles = (Group) root.getChildren().get(4);
 
         diceAndMoveGroup.getChildren().get(10).setOnMousePressed(e -> {
             statisticsPanel.setVisible(true);
@@ -79,16 +80,18 @@ public class SceneController {
             payPanel.setVisible(getTempWindowVisible(1));
         });
 
-        (new MoveLogic(new TileController(),
+        (new MoveLogic(new TileController(tiles),
                 new PlayerController(players),
                 new DiceController(diceAndMoveGroup),
                 new DisplayWindowController(handleWindow),
-                new StatisticsController(statisticsPanel,buyPanel,payPanel,handleWindow)))
+                new StatisticsController(statisticsPanel,buyPanel,payPanel,handleWindow),
+                new BuyHotelWindowController(buyHotel),
+                new BuyHomeWindowController(buyHome)))
                 .start();
     }
 
     public void switchToSettings(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/Settings.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/Settings.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ((GridPane) root.getChildren().get(1)).setPrefSize(stage.getWidth(), stage.getHeight());
         ((GridPane) root.getChildren().get(2)).setPrefSize(stage.getWidth() * 0.95, stage.getHeight() * 0.90);
@@ -132,4 +135,32 @@ public class SceneController {
     private void setTempWindowVisible(boolean value, int i) { tempWindowVisible[i]=value; }
 
     private boolean getTempWindowVisible(int i) { return tempWindowVisible[i]; }
+
+    public void showGameSummary(ActionEvent actionEvent) {
+        Player[] players = PlayerController.getPlayers();
+
+        int n = PlayerController.PLAYERS_NUMBER;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (players[j].getScore() < players[j + 1].getScore()) {
+                    Player temp = players[j];
+                    players[j] = players[j + 1];
+                    players[j + 1] = temp;
+                }
+            }
+        }
+
+        ((ImageView) gameSummary.getChildren().get(4)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + (players[0].getType().ordinal() + 1) + ".png"))));
+
+        ((ImageView) gameSummary.getChildren().get(5)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + (players[1].getType().ordinal() + 1) + ".png"))));
+
+
+        ((ImageView) gameSummary.getChildren().get(6)).setImage(new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("css/images/Kotek_" + (players[2].getType().ordinal() + 1) + ".png"))));
+
+
+        gameSummary.setVisible(true);
+    }
 }

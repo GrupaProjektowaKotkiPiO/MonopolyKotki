@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.util.Objects;
 
 public class Monopoly extends Application {
     public static final double SCENEHEIGHT=1080;
@@ -18,7 +18,7 @@ public class Monopoly extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Pane root = FXMLLoader.load(getClass().getResource("controller/fxml/Menu.fxml"));
+            Pane root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("controller/fxml/Menu.fxml")));
             Scene scene = new Scene(root);
             stage.setWidth(Screen.getPrimary().getVisualBounds().getWidth());
             stage.setHeight(Screen.getPrimary().getVisualBounds().getHeight());
