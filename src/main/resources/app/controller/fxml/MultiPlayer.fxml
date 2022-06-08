@@ -1865,7 +1865,7 @@
                 <Label layoutX="671.0" layoutY="450.0" stylesheets="@../css/DescriptionTitle.css" text="+200 €" />
             </children>
         </Group>
-      <Group layoutX="37.0" layoutY="40.0" visible="false">
+        <Group layoutX="37.0" layoutY="40.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
             <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
@@ -1884,7 +1884,7 @@
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić dom?" textAlignment="CENTER" />
          </children>
       </Group>
-      <Group layoutX="47.0" layoutY="50.0" visible="false">
+        <Group layoutX="47.0" layoutY="50.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
             <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
@@ -1942,5 +1942,29 @@
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="890.0" layoutY="660.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
             </children>
         </Group>
+        <Group layoutX="37.0" layoutY="40.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" layoutX="-10.0" layoutY="-10.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+            <ImageView fitHeight="300.0" fitWidth="344.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/Chance_Card.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" layoutX="493.0" layoutY="418.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="300.0" prefHeight="103.0" prefWidth="311.0" stylesheets="@../css/Button.css" text="Masz urodziny i od każdego &#10;gracza otrzymujesz po &#10;40 monet." textAlignment="CENTER" />
+         </children>
+      </Group>
+        <Group layoutX="37.0" layoutY="40.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" layoutX="-10.0" layoutY="-10.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+            <ImageView fitHeight="300.0" fitWidth="344.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/Community_Chest_Card.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" layoutX="493.0" layoutY="418.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="291.0" prefHeight="103.0" prefWidth="311.0" stylesheets="@../css/Button.css" text="Zachorowałeś i idziesz do&#10;szpitala. Płacisz za prywatne&#10;leczenie 200 monet." textAlignment="CENTER" />
+         </children>
+      </Group>
     </children>
 </AnchorPane>

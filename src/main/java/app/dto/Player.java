@@ -11,6 +11,8 @@ public class Player {
     private int cardsCounter = 0;
     private int money = 1000;
     private int score;
+    private boolean isPlayerInGame = true;
+    private int lostQueues = 0; //pozostała ilość straconych kolejek gry -> NIE MA IMPLEMENTACJI
 
     public Player(PlayerType inputType, ImageView inputPlayerOnBoard, Label playersMoneyLabel) {
         type = inputType;
@@ -33,7 +35,17 @@ public class Player {
     public int getMoney() { return money; }
 
     public void setMoney(int money) {
+        if(!isPlayerInGame()) {
+            return;
+        }
+
         this.money = money;
+
+        if(this.money < 0) {
+            playersMoneyLabel.setText("DEBET");
+            isPlayerInGame = false;
+        }
+
         playersMoneyLabel.setText(money + " €");
     }
 
@@ -53,5 +65,17 @@ public class Player {
     public int getScore() {
         countScore();
         return score;
+    }
+
+    public boolean isPlayerInGame() {
+        return isPlayerInGame;
+    }
+
+    public int getLostQueues() {
+        return lostQueues;
+    }
+
+    public void setLostQueues(int lostQueues) {
+        this.lostQueues = lostQueues;
     }
 }
