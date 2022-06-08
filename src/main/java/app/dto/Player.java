@@ -16,7 +16,7 @@ public class Player {
 
     public Player(PlayerType inputType, ImageView inputPlayerOnBoard, Label playersMoneyLabel) {
         type = inputType;
-        playerOnBoard=inputPlayerOnBoard;
+        playerOnBoard = inputPlayerOnBoard;
         this.playersMoneyLabel = playersMoneyLabel;
     }
 
@@ -28,20 +28,26 @@ public class Player {
         return playerOnBoard;
     }
 
-    public int getPosition() { return position; }
+    public int getPosition() {
+        return position;
+    }
 
-    public void setPosition(int position) { this.position = position; }
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
-    public int getMoney() { return money; }
+    public int getMoney() {
+        return money;
+    }
 
     public void setMoney(int money) {
-        if(!isPlayerInGame()) {
+        if (!isPlayerInGame()) {
             return;
         }
 
         this.money = money;
 
-        if(this.money < 0) {
+        if (this.money < 0) {
             playersMoneyLabel.setText("DEBET");
             isPlayerInGame = false;
         }
@@ -49,15 +55,18 @@ public class Player {
         playersMoneyLabel.setText(money + " €");
     }
 
-    public int getCardsCounter() { return cardsCounter; }
+    public int getCardsCounter() {
+        return cardsCounter;
+    }
 
-    public void setCardsCounter(int cardsCounter) { this.cardsCounter = cardsCounter; }
+    public void setCardsCounter(int cardsCounter) {
+        this.cardsCounter = cardsCounter;
+    }
 
     public void countScore() {
-        if(money <= 0) {
+        if (money <= 0) {
             score = 0;
-        }
-        else {
+        } else {
             score = money + cardsCounter * 100;
         }
     }
@@ -78,3 +87,4 @@ public class Player {
     public void setLostQueues(int lostQueues) {
         this.lostQueues = lostQueues;
     }
+}
