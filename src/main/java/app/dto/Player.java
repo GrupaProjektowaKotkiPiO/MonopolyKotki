@@ -1,18 +1,21 @@
 package app.dto;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class Player {
     private final PlayerType type;
     private final ImageView playerOnBoard;
+    private final Label playersMoneyLabel;
     private int position = 0;
     private int cardsCounter = 0;
     private int money = 1000;
     private int score;
 
-    public Player(PlayerType inputType, ImageView inputPlayerOnBoard) {
+    public Player(PlayerType inputType, ImageView inputPlayerOnBoard, Label playersMoneyLabel) {
         type = inputType;
         playerOnBoard=inputPlayerOnBoard;
+        this.playersMoneyLabel = playersMoneyLabel;
     }
 
     public PlayerType getType() {
@@ -29,7 +32,10 @@ public class Player {
 
     public int getMoney() { return money; }
 
-    public void setMoney(int money) { this.money = money; }
+    public void setMoney(int money) {
+        this.money = money;
+        playersMoneyLabel.setText(money + " €");
+    }
 
     public int getCardsCounter() { return cardsCounter; }
 
