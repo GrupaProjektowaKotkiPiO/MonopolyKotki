@@ -56,6 +56,7 @@ public class SceneController {
                 zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), false);
         });
 
+
         Group communityChestCard = (Group) root.getChildren().get(16);
         Group chanceCard = (Group) root.getChildren().get(15);
         Group usersMoney = (Group) root.getChildren().get(14);
@@ -87,6 +88,7 @@ public class SceneController {
 
         (new MoveLogic(new TileController(tiles),
                 new PlayerController(players, usersMoney),
+                new PlayerController(players),
                 new DiceController(diceAndMoveGroup),
                 new DisplayWindowController(handleWindow),
                 new StatisticsController(statisticsPanel,buyPanel,payPanel,handleWindow),
@@ -94,6 +96,7 @@ public class SceneController {
                 new BuyHomeWindowController(buyHome),
                 new ChanceController(chanceCard),
                 new CommunityChestController(communityChestCard)))
+                new BuyHomeWindowController(buyHome)))
                 .start();
     }
 

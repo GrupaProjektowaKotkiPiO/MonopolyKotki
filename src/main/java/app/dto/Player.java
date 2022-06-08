@@ -78,4 +78,3 @@ public class Player {
     public void setLostQueues(int lostQueues) {
         this.lostQueues = lostQueues;
     }
-}
