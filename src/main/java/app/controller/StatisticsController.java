@@ -49,17 +49,25 @@ public class StatisticsController {
         skip=(Button) inputBuyPanel.getChildren().get(4);
     }
 
-    public void action(Player player,Tile tile, BuyHotelWindowController buyHotelWindowController, BuyHomeWindowController buyHomeWindowController) {
+    public void action(Player player,Tile tile, BuyHotelWindowController buyHotelWindowController, BuyHomeWindowController buyHomeWindowController, ChanceController chanceController, CommunityChestController communityChestController, PlayerController playerController, TileController tileController) {
         if(tile.getType()==TileType.START ||
                 tile.getType()==TileType.JUST_VISITING ||
                 tile.getType()==TileType.FREE_PARKING ||
                 tile.getType()==TileType.JAIL ||
-                tile.getType()==TileType.CHANCE ||
                 tile.getType()==TileType.INCOME_TAX ||
                 tile.getType()==TileType.ELECTRIC_COMPANY ||
                 tile.getType()==TileType.WATER_WORKS ||
-                tile.getType()==TileType.LUXURY_TAX ||
-                tile.getType()==TileType.COMMUNITY_CHEST) {
+                tile.getType()==TileType.LUXURY_TAX) {
+            return;
+        }
+
+        if(tile.getType()==TileType.CHANCE) {
+            chanceController.show(player, playerController, tileController);
+            return;
+        }
+
+        if(tile.getType()==TileType.COMMUNITY_CHEST) {
+            communityChestController.show(player, playerController, tileController);
             return;
         }
 

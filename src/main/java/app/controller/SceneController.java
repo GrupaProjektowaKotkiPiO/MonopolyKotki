@@ -56,6 +56,10 @@ public class SceneController {
                 zoom(root, zoomFactor, e.getSceneX(), e.getSceneY(), false);
         });
 
+
+        Group communityChestCard = (Group) root.getChildren().get(16);
+        Group chanceCard = (Group) root.getChildren().get(15);
+        Group usersMoney = (Group) root.getChildren().get(14);
         Group buyHotel = (Group) root.getChildren().get(12);
         Group buyHome = (Group) root.getChildren().get(11);
         Group payPanel=(Group) root.getChildren().get(10);
@@ -72,20 +76,26 @@ public class SceneController {
             setTempWindowVisible(payPanel.isVisible(), 1);
             buyPanel.setVisible(false);
             payPanel.setVisible(false);
+            usersMoney.setVisible(false);
         });
 
         statisticsPanel.getChildren().get(6).setOnMousePressed(e -> {
             statisticsPanel.setVisible(false);
             buyPanel.setVisible(getTempWindowVisible(0));
             payPanel.setVisible(getTempWindowVisible(1));
+            usersMoney.setVisible(true);
         });
 
         (new MoveLogic(new TileController(tiles),
+                new PlayerController(players, usersMoney),
                 new PlayerController(players),
                 new DiceController(diceAndMoveGroup),
                 new DisplayWindowController(handleWindow),
                 new StatisticsController(statisticsPanel,buyPanel,payPanel,handleWindow),
                 new BuyHotelWindowController(buyHotel),
+                new BuyHomeWindowController(buyHome),
+                new ChanceController(chanceCard),
+                new CommunityChestController(communityChestCard)))
                 new BuyHomeWindowController(buyHome)))
                 .start();
     }

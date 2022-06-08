@@ -988,46 +988,42 @@
             </ImageView>
         </Group>
         <GridPane hgap="10" prefHeight="754.0" prefWidth="1421.0" vgap="10">
-            <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="10">
+            <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="11">
                 <image>
                     <Image url="@../css/images/Kotek_1.png" />
                 </image>
             </ImageView>
-            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="5" GridPane.rowIndex="11" />
-            <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="27">
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="5" GridPane.rowIndex="12" />
+            <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="28">
                 <image>
                     <Image url="@../css/images/Kotek_2.png" />
                 </image>
             </ImageView>
-            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="5" GridPane.rowIndex="28" />
-
-                                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" translateX="30" GridPane.columnIndex="5" GridPane.rowIndex="19">
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="5" GridPane.rowIndex="29" />
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" translateX="30" GridPane.columnIndex="5" GridPane.rowIndex="20">
                 <image>
                     <Image url="@../css/images/Dice_1.png" />
                 </image>
             </ImageView>
-
-                                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" translateX="30" GridPane.columnIndex="85" GridPane.rowIndex="19">
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" translateX="30" GridPane.columnIndex="85" GridPane.rowIndex="20">
                 <image>
                     <Image url="@../css/images/Dice_1.png" />
                 </image>
             </ImageView>
-
-                                    <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="85" GridPane.rowIndex="10">
+            <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="85" GridPane.rowIndex="11">
                 <image>
                     <Image url="@../css/images/Kotek_3.png" />
                 </image>
             </ImageView>
-            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="85" GridPane.rowIndex="11" />
-            <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="85" GridPane.rowIndex="27">
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="85" GridPane.rowIndex="12" />
+            <ImageView fitHeight="125.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="85" GridPane.rowIndex="28">
                 <image>
                     <Image url="@../css/images/Kotek_4.png" />
                 </image>
             </ImageView>
-            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="85" GridPane.rowIndex="28" />
-
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120" stylesheets="@../css/Button.css" text="Statystyki" GridPane.columnIndex="99" GridPane.rowIndex="28" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#showGameSummary" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="29" />
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="85" GridPane.rowIndex="29" />
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120" stylesheets="@../css/Button.css" text="Statystyki" GridPane.columnIndex="99" GridPane.rowIndex="29" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#showGameSummary" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="31" />
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
@@ -1161,6 +1157,8 @@
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
          </rowConstraints>
         </GridPane>
         <Group layoutX="1235" layoutY="45">
@@ -1176,7 +1174,7 @@
                     <Image url="@../css/images/Kotek_1.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="250.0" fitWidth="450.0" layoutX="6" layoutY="297" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitWidth="200.0" layoutX="28" layoutY="260" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../css/images/Cards/Card0.png" />
                 </image>
@@ -1277,134 +1275,134 @@
             <Button layoutX="1375" layoutY="700" mnemonicParsing="false" stylesheets="@../css/Button.css" text="Wróć" />
             <ScrollPane layoutX="356.0" layoutY="65.0" prefHeight="134.0" prefWidth="970.0">
            <content>
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="2860.0">
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="2860.0">
                   <children>
-                     <ImageView fitHeight="118.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="164.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                            <Image url="@../css/images/Cards/Card40.png" />
                         </image>
                      </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../css/images/Cards/Card40.png" />
                           </image>
@@ -1415,134 +1413,134 @@
          </ScrollPane>
             <ScrollPane layoutX="356.0" layoutY="244.0" prefHeight="134.0" prefWidth="970.0">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="2860.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="2860.0">
                         <children>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
@@ -1553,134 +1551,134 @@
             </ScrollPane>
             <ScrollPane layoutX="356.0" layoutY="411.0" prefHeight="134.0" prefWidth="970.0">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="2860.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="2860.0">
                         <children>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
@@ -1691,134 +1689,134 @@
             </ScrollPane>
             <ScrollPane layoutX="356.0" layoutY="587.0" prefHeight="134.0" prefWidth="970.0">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="2860.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="2860.0">
                         <children>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="110.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="220.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="330.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="440.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="660.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="880.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="990.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1210.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1320.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1430.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1540.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1650.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1760.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1870.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="1980.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2090.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2200.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2310.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2420.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2530.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2640.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="164.0" fitWidth="109.0" layoutX="2750.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../css/images/Cards/Card40.png" />
                                 </image>
@@ -1838,7 +1836,7 @@
                 </ImageView>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
                 <Button alignment="CENTER" layoutX="433.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Kup kartę" />
-                <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Pomiń" />
+                <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Odrzuć" />
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić kartę?" textAlignment="CENTER" />
             </children>
         </Group>
@@ -1867,7 +1865,7 @@
                 <Label layoutX="671.0" layoutY="450.0" stylesheets="@../css/DescriptionTitle.css" text="+200 €" />
             </children>
         </Group>
-      <Group layoutX="37.0" layoutY="40.0" visible="false">
+        <Group layoutX="37.0" layoutY="40.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
             <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
@@ -1882,11 +1880,11 @@
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
             <Button alignment="CENTER" layoutX="433.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Kup dom" />
-            <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Pomiń" />
+            <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Odrzuć" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić dom?" textAlignment="CENTER" />
          </children>
       </Group>
-      <Group layoutX="47.0" layoutY="50.0" visible="false">
+        <Group layoutX="47.0" layoutY="50.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
             <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
@@ -1901,7 +1899,7 @@
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
             <Button alignment="CENTER" layoutX="433.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Kup hotel" />
-            <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Pomiń" />
+            <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Odrzuć" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić hotel?" textAlignment="CENTER" />
          </children>
       </Group>
@@ -1933,7 +1931,39 @@
                     <Image url="@../css/images/Kotek_3.png" />
                 </image>
             </ImageView>
-            <Button alignment="CENTER" onAction="#switchToMenu" layoutX="493.0" layoutY="471.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
+            <Button alignment="CENTER" layoutX="493.0" layoutY="471.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
+         </children>
+      </Group>
+        <Group layoutX="115.0" layoutY="60.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-45.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-45.0" layoutY="660.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="890.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="890.0" layoutY="660.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+            </children>
+        </Group>
+        <Group layoutX="37.0" layoutY="40.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" layoutX="-10.0" layoutY="-10.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+            <ImageView fitHeight="300.0" fitWidth="344.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/Chance_Card.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" layoutX="493.0" layoutY="418.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="300.0" prefHeight="103.0" prefWidth="311.0" stylesheets="@../css/Button.css" text="Masz urodziny i od każdego &#10;gracza otrzymujesz po &#10;40 monet." textAlignment="CENTER" />
+         </children>
+      </Group>
+        <Group layoutX="37.0" layoutY="40.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" layoutX="-10.0" layoutY="-10.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+            <ImageView fitHeight="300.0" fitWidth="344.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/images/Community_Chest_Card.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" layoutX="493.0" layoutY="418.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="291.0" prefHeight="103.0" prefWidth="311.0" stylesheets="@../css/Button.css" text="Zachorowałeś i idziesz do&#10;szpitala. Płacisz za prywatne&#10;leczenie 200 monet." textAlignment="CENTER" />
          </children>
       </Group>
     </children>

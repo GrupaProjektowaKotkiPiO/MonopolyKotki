@@ -3,17 +3,18 @@ package app.controller;
 import app.dto.Player;
 import app.dto.PlayerType;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class PlayerController {
     public static final int PLAYERS_NUMBER = 4;
     private static final Player[] players = new Player[PLAYERS_NUMBER];
 
-    public PlayerController(Group playersGroup) {
-        players[0]=new Player(PlayerType.PLAYER1,(ImageView)playersGroup.getChildren().get(0));
-        players[1]=new Player(PlayerType.PLAYER2,(ImageView)playersGroup.getChildren().get(1));
-        players[2]=new Player(PlayerType.PLAYER3,(ImageView)playersGroup.getChildren().get(2));
-        players[3]=new Player(PlayerType.PLAYER4,(ImageView)playersGroup.getChildren().get(3));
+    public PlayerController(Group playersGroup, Group usersMoney) {
+        players[0]=new Player(PlayerType.PLAYER1,(ImageView)playersGroup.getChildren().get(0), (Label) usersMoney.getChildren().get(0));
+        players[1]=new Player(PlayerType.PLAYER2,(ImageView)playersGroup.getChildren().get(1), (Label) usersMoney.getChildren().get(1));
+        players[2]=new Player(PlayerType.PLAYER3,(ImageView)playersGroup.getChildren().get(2), (Label) usersMoney.getChildren().get(2));
+        players[3]=new Player(PlayerType.PLAYER4,(ImageView)playersGroup.getChildren().get(3), (Label) usersMoney.getChildren().get(3));
     }
 
     public void moveThePlayer(PlayerType type, int paddingType, double[][] padding) {
