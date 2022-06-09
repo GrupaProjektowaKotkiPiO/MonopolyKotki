@@ -3,22 +3,39 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 
-<?import javafx.scene.layout.GridPane?>
 <AnchorPane prefHeight="1080.0" prefWidth="1920" stylesheets="@../css/Background.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.SceneController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#434343" height="1080" layoutX="1.0" layoutY="1.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#434343" height="1080" layoutX="1.0" layoutY="1.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
         <GridPane alignment="CENTER" hgap="20" vgap="20">
-            <Label GridPane.rowIndex="0" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Opis gry" />
-            <Label GridPane.rowIndex="1" GridPane.columnIndex="0" stylesheets="@../css/DescriptionBody.css" text="Klasyczna wersja planszowej gry monopoly, która zapewnia wiele emocji i pozytywnych przeżyć.&#10;Pokonaj przeciwników i zostań mistrzem monopoly." />
-            <Label GridPane.rowIndex="2" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Wersja" />
-            <Label GridPane.rowIndex="3" GridPane.columnIndex="0" stylesheets="@../css/DescriptionBody.css" text="2.1.1" />
-            <Label GridPane.rowIndex="4" GridPane.columnIndex="0" stylesheets="@../css/DescriptionTitle.css" text="Autorzy" />
-            <Label GridPane.rowIndex="5" GridPane.columnIndex="0" stylesheets="@../css/DescriptionBody.css" text="Szymon Jakubaszek, Daria Glińska, Maciej Sierzputowski" />
+            <Label stylesheets="@../css/DescriptionTitle.css" text="Opis gry" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label stylesheets="@../css/DescriptionBody.css" text=" Witaj w Monopoly Kotków, w grze w której  celem jest zostanie milionerem i doprowadzenie innych graczy(kotków)&#10; do bankructwa. Żeby tego dokonać, trzeba wcielić się w rolę inwestora, kupować działki, ściągać czynsz od innych&#10; graczy, budować domy oraz hotele na posiadanych miejscach słynnych w Łodzi.&#10; Gra Monopoly Kotki składa się z następujących elementów:&#10; •    pola nieruchomości do kupienia przez graczy – ich cena zależy od atrakcyjności regionu. Można stawiać na nich&#10;        domy i hotele, a następnie pobierać opłaty od graczy. Jeżeli mamy wykupione wszystkie posesje w tym samym&#10;        kolorze to pobieramy więcej pieniędzy za czyjeś wejście w nasze pole. Dodatkowo by wybudować hotel będziesz&#10;        potrzebował najpierw zbudować 3 domki (które wtedy zastępujesz hotelem). &#10; •    cztery pola łódzkich dworców kolejowych – im więcej posiadacie tych pól, tym większe gracze będą płacić wam &#10;        czynsze, gdy na nie wejdą&#10; •    pola podatkowe – „Są dwie w życiu pewne rzeczy śmierć i podatki” - użytkownicy uiszczają opłatę do banku, bez &#10;        żadnych korzyści dla innych osób&#10; •    pola Szansy – gracze losują jedną z kart szansy i otrzymują dodatkowe bonusy wynikające z opisu na karcie&#10; •    pola Kasy Społecznej – gracze losują jedną z kart Kasy Społecznej i muszą ponieść dodatkowe opłaty wynikające&#10;        z opisu na karcie&#10; •    cztery narożne pola specjalne – start/meta, więzienie, parking oraz policja. Po wejściu na pole policji,&#10;        użytkownik od razu trafia do celi(na pole więzienie) i traci jedną kolejkę, natomiast gdy minie metę zyskuje 200€" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label stylesheets="@../css/DescriptionTitle.css" text="Autorzy" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label stylesheets="@../css/DescriptionBody.css" text="Szymon Jakubaszek, Daria Glińska, Maciej Sierzputowski" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
         <GridPane alignment="BOTTOM_RIGHT" hgap="20" vgap="20">
-            <Button GridPane.rowIndex="0" GridPane.columnIndex="0"  mnemonicParsing="false" onAction="#switchToMenu" stylesheets="@../css/Button.css" text="Wróć"/>
+            <Button mnemonicParsing="false" onAction="#switchToMenu" stylesheets="@../css/Button.css" text="Wróć" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
     </children>
 </AnchorPane>
