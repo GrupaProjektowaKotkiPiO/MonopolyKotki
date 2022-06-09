@@ -1936,10 +1936,10 @@
       </Group>
         <Group layoutX="115.0" layoutY="60.0">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-45.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-45.0" layoutY="660.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="890.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="890.0" layoutY="660.0" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-40.0" layoutY="660.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="925.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="925.0" layoutY="660.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" stylesheets="@../css/Button.css" text="1000 €" textAlignment="CENTER" />
             </children>
         </Group>
         <Group layoutX="37.0" layoutY="40.0" visible="false">

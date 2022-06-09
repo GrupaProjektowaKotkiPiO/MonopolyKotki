@@ -12,11 +12,13 @@ public class ChanceController {
     private final Group chanceCard;
     private final Label information;
 
+    //class constructor -> sets the chanceCard & gets information label from fxml file
     public ChanceController(Group chanceCard) {
         this.chanceCard = chanceCard;
         information = (Label) chanceCard.getChildren().get(3);
     }
 
+    //shows our graphic representation of our chance cards
     public void show(Player player, PlayerController playerController, TileController tileController) {
 
         generateCard(player, playerController, tileController);
@@ -26,22 +28,23 @@ public class ChanceController {
         chanceCard.setVisible(true);
     }
 
+    //generates our card which is randomly generated
     private void generateCard(Player player, PlayerController playerController, TileController tileController) {
-        switch(getRandomNumber()) {
+        switch (getRandomNumber()) {
             case 0:
                 information.setText("Masz urodziny i od każdego\ngracza otrzymujesz po\n40 monet.");
 
                 Player[] players = PlayerController.getPlayers();
+                //checking if players have enough money or are in game to pay the player
                 int playersStillInGameCtr = 0;
-                for(int i = 0; i < PlayerController.PLAYERS_NUMBER; i++) {
-                    if(players[i].getType() != player.getType() && player.isPlayerInGame()) {
+                for (int i = 0; i < PlayerController.PLAYERS_NUMBER; i++) {
+                    if (players[i].getType() != player.getType() && player.isPlayerInGame()) {
                         players[i].setMoney(players[i].getMoney() - 40);
                         playersStillInGameCtr++;
                     }
                 }
 
                 player.setMoney(player.getMoney() + playersStillInGameCtr * 40);
-
                 break;
             case 1:
                 information.setText("Idziesz na urlop.\nOtrzymujesz 250 monet\ni stoisz 2 kolejki.");
@@ -64,11 +67,12 @@ public class ChanceController {
         }
     }
 
+    //simple method to generate our next random number which contains Card
     private int getRandomNumber() {
         Random number = new Random();
         return number.nextInt(NUMBER_OF_CARDS);
     }
-
+    //hides our okButton
     private void okButtonAction() {
         ((Button) chanceCard.getChildren().get(2)).setOnAction(e -> chanceCard.setVisible(false));
     }

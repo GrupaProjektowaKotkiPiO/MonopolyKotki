@@ -26,7 +26,7 @@ public class Tile {
     private int hotelRent = 0;
     private int homeCounter = 0;
     private int hotelCounter = 0;
-
+    //class constructor
     public Tile(Group group, TileType inputType, String inputName, int inputPrice, int rent, int rentAllColor, int homeCost, int hotelCost) {
         tileGroup = group;
         type=inputType;
@@ -116,7 +116,7 @@ public class Tile {
     public void setHotelRent(int hotelRent) {
         this.hotelRent = hotelRent;
     }
-
+    //getter of current rent on certain tile
     public int getCurrentRent() {
         if(type.toString().contains("NORMAL")) {
             if (playerHasAllColor()) {
@@ -142,7 +142,7 @@ public class Tile {
             }
         }
     }
-
+    //calculating how many Railroads player has
     private int howManyRailroadsPlayerHas() {
         int ctr = 0;
         for(int i = 0; i < RAILROADS_COUNTER; i++) {
@@ -153,7 +153,7 @@ public class Tile {
 
         return ctr;
     }
-
+    //checking if player has all tiles in certain colour
     private boolean playerHasAllColor() {
         int tilesInColor = 3;
         if(type == TileType.NORMAL_BROWN || type == TileType.NORMAL_BLUEDARK) {

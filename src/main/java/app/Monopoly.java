@@ -11,7 +11,10 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class Monopoly extends Application {
-
+    public static final double SCENEHEIGHT=1080;
+    public static final double SCENEWIDTH=1920;
+    public static final double RATIO=SCENEWIDTH/SCENEHEIGHT;
+    //starting the game
     @Override
     public void start(Stage stage) {
         try {

@@ -20,9 +20,9 @@ public class MoveLogic {
 
     private final EndOfTheGame endOfTheGame;
     private int currentPlayer;
-
     private int debitCounter;
 
+    //class constructor
     public MoveLogic(TileController inputTileController,
                      PlayerController inputPlayerController,
                      DiceController inputDiceController,
@@ -54,7 +54,9 @@ public class MoveLogic {
         move(diceController.getMoveButtons()[3], PlayerType.PLAYER4);
     }
 
+    //implementation of player moving
     private void move(Button player, PlayerType type) {
+        //getting which turn is now
         int i = type.ordinal();
 
         player.setOnMousePressed(e -> {
@@ -92,13 +94,11 @@ public class MoveLogic {
                                 tileController);
 
                 skipPlayerIfHasDebit();
-
                 if (currentPlayer == 3) {
                     displayWindowController.changePlayerInWindow(PlayerController.getPlayers()[0].getType());
                 } else {
                     displayWindowController.changePlayerInWindow(PlayerController.getPlayers()[currentPlayer + 1].getType());
                 }
-
                 if(debitCounter==3)
                     endOfTheGame.show();
 

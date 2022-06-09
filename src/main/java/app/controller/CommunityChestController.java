@@ -11,11 +11,13 @@ public class CommunityChestController {
     private static final int NUMBER_OF_CARDS = 5;
     private final Group communityChestWindow;
     private final Label information;
+
     public CommunityChestController(Group communityChestWindow) {
         this.communityChestWindow = communityChestWindow;
         information = (Label) communityChestWindow.getChildren().get(3);
     }
 
+    //shows our graphic representation of our community chest cards
     public void show(Player player, PlayerController playerController, TileController tileController) {
 
         generateCard(player, playerController, tileController);
@@ -25,8 +27,9 @@ public class CommunityChestController {
         communityChestWindow.setVisible(true);
     }
 
+    //generates our community chest which is randomly generated
     private void generateCard(Player player, PlayerController playerController, TileController tileController) {
-        switch(getRandomNumber()) {
+        switch (getRandomNumber()) {
             case 0:
                 information.setText("Zachorowałeś i idziesz do\nszpitala. Płacisz za prywatne\nleczenie 200 monet.");
                 player.setMoney(player.getMoney() - 200);
@@ -54,11 +57,13 @@ public class CommunityChestController {
         }
     }
 
+    //simple method to generate our next random number which contains Card
     private int getRandomNumber() {
         Random number = new Random();
         return number.nextInt(NUMBER_OF_CARDS);
     }
 
+    //hides our okButton
     private void okButtonAction() {
         ((Button) communityChestWindow.getChildren().get(2)).setOnAction(e -> communityChestWindow.setVisible(false));
     }
