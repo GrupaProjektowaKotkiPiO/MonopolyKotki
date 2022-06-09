@@ -47,6 +47,7 @@ public class CommunityChestController {
             case 3:
                 information.setText("Idziesz do więzienia.");
                 player.setPosition(30);
+                player.setPrisoner(true);
                 playerController.moveThePlayer(player.getType(), player.getPosition() / 10, tileController.getPadding());
                 break;
             default:

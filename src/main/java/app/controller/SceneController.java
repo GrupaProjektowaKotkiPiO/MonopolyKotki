@@ -60,6 +60,7 @@ public class SceneController {
 
 
         Group communityChestCard = (Group) root.getChildren().get(16);
+        Group finish = (Group) root.getChildren().get(root.getChildren().size()-1);
         Group chanceCard = (Group) root.getChildren().get(15);
         Group usersMoney = (Group) root.getChildren().get(14);
         Group buyHotel = (Group) root.getChildren().get(12);
@@ -96,7 +97,8 @@ public class SceneController {
                 new BuyHotelWindowController(buyHotel),
                 new BuyHomeWindowController(buyHome),
                 new ChanceController(chanceCard),
-                new CommunityChestController(communityChestCard)))
+                new CommunityChestController(communityChestCard),
+                new EndOfTheGame(finish)))
                 .start();
     }
 
