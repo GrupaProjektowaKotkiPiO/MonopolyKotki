@@ -98,7 +98,7 @@ public class StatisticsController {
     //implementation of buying tiles
     private void buy(Player player, Tile tile) {
         if(!tile.hasOwner() && player.getMoney()>tile.getPrice()) {
-            mainWindowOff(tile.hasOwner());
+            mainWindowOff(tile.hasOwner(), tile);
 
             buy.setOnMousePressed(e -> {
                 cards[player.getType().ordinal()][player.getCardsCounter()].
@@ -154,7 +154,7 @@ public class StatisticsController {
 
     private void pay(Player player, Tile tile) {
         if(tile.hasOwner()) {
-            mainWindowOff(tile.hasOwner());
+            mainWindowOff(tile.hasOwner(), tile);
 
             setPlayerOnPanePanel(5,player.getType().ordinal()+1);
             setPlayerOnPanePanel(7,tile.getOwner().getType().ordinal()+1);
@@ -194,8 +194,9 @@ public class StatisticsController {
             priceLabels[player.getType().ordinal()].setText("Debet!");
     }
 
-    private void mainWindowOff(boolean hasTileOwner) {
+    private void mainWindowOff(boolean hasTileOwner, Tile tile) {
         if (!hasTileOwner) {
+            ((Label)buyPanel.getChildren().get(6)).setText("Koszt: " + tile.getPrice() + " €");
             buyPanel.setVisible(true);
         } else {
             payPanel.setVisible(true);

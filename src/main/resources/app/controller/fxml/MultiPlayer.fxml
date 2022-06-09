@@ -1023,7 +1023,7 @@
             </ImageView>
             <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="85" GridPane.rowIndex="29" />
             <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120" stylesheets="@../css/Button.css" text="Statystyki" GridPane.columnIndex="99" GridPane.rowIndex="29" />
-            <Button alignment="CENTER" mnemonicParsing="false"  onAction="#showGameSummary" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="31" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#showGameSummary" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="31" />
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
@@ -1837,7 +1837,8 @@
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
                 <Button alignment="CENTER" layoutX="433.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Kup kartę" />
                 <Button alignment="CENTER" layoutX="607.0" layoutY="442.0" mnemonicParsing="false" prefWidth="120.0" stylesheets="@../css/Button.css" text="Odrzuć" />
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="245.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić kartę?" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="230.0" stylesheets="@../css/DescriptionTitle.css" text="Czy chcesz kupić kartę?" textAlignment="CENTER" />
+                <Label layoutX="500.0" layoutY="270.0" stylesheets="@../css/DescriptionTitle.css" text="Koszt: 100 €" />
             </children>
         </Group>
         <Group layoutX="27.0" layoutY="30.0" visible="false">
