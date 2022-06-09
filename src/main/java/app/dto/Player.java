@@ -12,12 +12,16 @@ public class Player {
     private int money = 1000;
     private int score;
     private boolean isPlayerInGame = true;
-    private int lostQueues = 0; //pozostała ilość straconych kolejek gry -> NIE MA IMPLEMENTACJI
+
+    private boolean prisoner;
+    private int lostQueues;
 
     public Player(PlayerType inputType, ImageView inputPlayerOnBoard, Label playersMoneyLabel) {
         type = inputType;
         playerOnBoard = inputPlayerOnBoard;
         this.playersMoneyLabel = playersMoneyLabel;
+        prisoner=false;
+        lostQueues=0;
     }
 
     public PlayerType getType() {
@@ -86,5 +90,13 @@ public class Player {
 
     public void setLostQueues(int lostQueues) {
         this.lostQueues = lostQueues;
+    }
+
+    public boolean isPrisoner() {
+        return prisoner;
+    }
+
+    public void setPrisoner(boolean prisoner) {
+        this.prisoner = prisoner;
     }
 }

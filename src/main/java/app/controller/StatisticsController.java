@@ -71,6 +71,10 @@ public class StatisticsController {
             return;
         }
 
+        if(tile.getType()==TileType.JAIL) {
+            player.setPrisoner(true);
+        }
+
         setPlayerOnHandleWindow(player.getType().ordinal()+1);
 
         if(!tile.hasOwner()) {

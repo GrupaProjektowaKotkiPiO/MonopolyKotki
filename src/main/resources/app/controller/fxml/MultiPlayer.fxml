@@ -1023,7 +1023,7 @@
             </ImageView>
             <Button alignment="CENTER" mnemonicParsing="false" prefWidth="140" stylesheets="@../css/Button.css" text="Rzuć kostką" GridPane.columnIndex="85" GridPane.rowIndex="29" />
             <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120" stylesheets="@../css/Button.css" text="Statystyki" GridPane.columnIndex="99" GridPane.rowIndex="29" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#showGameSummary" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="31" />
+            <Button alignment="CENTER" mnemonicParsing="false"  onAction="#showGameSummary" prefHeight="42.0" prefWidth="119.0" stylesheets="@../css/Button.css" text="Zakończ" GridPane.columnIndex="99" GridPane.rowIndex="31" />
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
@@ -1966,5 +1966,36 @@
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="291.0" prefHeight="103.0" prefWidth="311.0" stylesheets="@../css/Button.css" text="Zachorowałeś i idziesz do&#10;szpitala. Płacisz za prywatne&#10;leczenie 200 monet." textAlignment="CENTER" />
          </children>
       </Group>
+        <Group layoutX="27.0" layoutY="30.0" visible="false">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" height="745.0" stroke="BLACK" strokeType="INSIDE" width="1163.0" />
+                <ImageView fitHeight="300.0" fitWidth="344.0" layoutX="381.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../css/images/Winners.png" />
+                    </image>
+                </ImageView>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="381.0" layoutY="213.0" opacity="0.39" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="344.0" />
+                <ImageView fitHeight="234.0" fitWidth="225.0" layoutX="444.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../css/images/Podium.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="87.0" fitWidth="99.0" layoutX="513.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../css/images/Kotek_1.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="69.0" fitWidth="80.0" layoutX="444.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../css/images/Kotek_2.png" />
+                    </image>
+                </ImageView><ImageView fitHeight="69.0" fitWidth="80.0" layoutX="600.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../css/images/Kotek_3.png" />
+                </image>
+            </ImageView>
+                <Button alignment="CENTER" layoutX="493.0" layoutY="471.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/Button.css" text="OK" />
+            </children>
+        </Group>
     </children>
 </AnchorPane>
