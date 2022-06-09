@@ -64,9 +64,9 @@ public class MoveLogic {
                 currentPlayer = -1;
 
             if (currentPlayer + 1 == i) {
-                if(playerController.getPlayers()[i].isPrisoner() && playerController.getPlayers()[i].getLostQueues()==2) {
+                if(playerController.getPlayers()[i].isPrisoner() && playerController.getPlayers()[i].getLostQueues()!=0) {
                     playerController.getPlayers()[i].setPrisoner(false);
-                    playerController.getPlayers()[i].setLostQueues(0);
+                    playerController.getPlayers()[i].setLostQueues(playerController.getPlayers()[i].getLostQueues() - 1);
                 }
 
                 if(playerController.getPlayers()[i].isPrisoner() && playerController.getPlayers()[i].getLostQueues()<3)

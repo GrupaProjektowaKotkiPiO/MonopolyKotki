@@ -44,9 +44,10 @@ public class Player {
     }
     //set current player money, when bakrupt, set text in label to "debet"
     public void setMoney(int money) {
-        if (!isPlayerInGame()) {
+        /*if (!isPlayerInGame()) {
+            playersMoneyLabel.setText("DEBET");
             return;
-        }
+        }*/
 
         this.money = money;
 

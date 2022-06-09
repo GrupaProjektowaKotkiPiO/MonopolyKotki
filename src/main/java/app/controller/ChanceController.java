@@ -47,9 +47,8 @@ public class ChanceController {
                 player.setMoney(player.getMoney() + playersStillInGameCtr * 40);
                 break;
             case 1:
-                information.setText("Idziesz na urlop.\nOtrzymujesz 250 monet\ni stoisz 2 kolejki.");
+                information.setText("Idziesz na urlop.\nOtrzymujesz 250 monet");
                 player.setMoney(player.getMoney() + 250);
-                player.setLostQueues(2);
                 break;
             case 2:
                 information.setText("Trafiłeś 6 prawidłowych\nskreśleń w grze losowej.\nOtrzymujesz 200 monet.");
