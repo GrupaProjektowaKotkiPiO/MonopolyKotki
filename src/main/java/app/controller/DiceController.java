@@ -13,7 +13,7 @@ public class DiceController {
     private final Button[] moveButtons;
     private final Dice diceLeft;
     private final Dice diceRight;
-
+    //class contructor -> sets diceLeft and diceRight from fxml file, and gives every player our movebutton
     public DiceController(GridPane diceAndMoveGroup) {
         diceLeft = new Dice(DiceType.LEFT, (ImageView) diceAndMoveGroup.getChildren().get(4));
         diceRight = new Dice(DiceType.RIGHT, (ImageView) diceAndMoveGroup.getChildren().get(5));
@@ -24,7 +24,7 @@ public class DiceController {
         moveButtons[2]=(Button)diceAndMoveGroup.getChildren().get(7);
         moveButtons[3]=(Button)diceAndMoveGroup.getChildren().get(9);
     }
-
+    //method which throws our two dices and sets their image
     public int throwTheDice() {
         diceLeft.throwTheDice();
         diceRight.throwTheDice();
@@ -33,6 +33,6 @@ public class DiceController {
 
         return diceLeft.getResultOfThrowingDice()+diceRight.getResultOfThrowingDice();
     }
-
+    //getter of buttons
     public Button[] getMoveButtons() { return moveButtons; }
 }

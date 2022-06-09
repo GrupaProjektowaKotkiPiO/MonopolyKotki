@@ -8,7 +8,7 @@ public class Dice {
     private final ImageView diceTile;
     private final DiceType type;
     private int resultOfThrowingDice;
-
+    //class constructor which set certain dice with certain image
     public Dice(DiceType inputType, ImageView inputDiceTile) {
         type=inputType;
         diceTile=inputDiceTile;

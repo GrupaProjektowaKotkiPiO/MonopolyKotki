@@ -16,6 +16,7 @@ public class MoveLogic {
     private final CommunityChestController communityChestController;
     private int currentPlayer;
 
+    //class constructor
     public MoveLogic(TileController inputTileController,
                      PlayerController inputPlayerController,
                      DiceController inputDiceController,
@@ -34,7 +35,7 @@ public class MoveLogic {
         this.buyHotelWindowController = buyHotelWindowController;
         this.chanceController = chanceController;
         this.communityChestController = communityChestController;
-        currentPlayer=3;
+        currentPlayer = 3;
     }
 
     public void start() {
@@ -44,24 +45,26 @@ public class MoveLogic {
         move(diceController.getMoveButtons()[3], PlayerType.PLAYER4);
     }
 
+    //implementation of player moving
     private void move(Button player, PlayerType type) {
-        int i=type.ordinal();
+        //getting which turn is now
+        int i = type.ordinal();
 
         player.setOnMousePressed(e -> {
-            if(currentPlayer==3)
-                currentPlayer=-1;
-            if(currentPlayer+1==i) {
+            if (currentPlayer == 3)
+                currentPlayer = -1;
+            if (currentPlayer + 1 == i) {
                 PlayerController.getPlayers()[i].setPosition(PlayerController.getPlayers()[i].getPosition() + diceController.throwTheDice());
                 if (PlayerController.getPlayers()[i].getPosition() >= 40) {
                     PlayerController.getPlayers()[i].setPosition(PlayerController.getPlayers()[i].getPosition() % 10);
-                    PlayerController.getPlayers()[i].setMoney(PlayerController.getPlayers()[i].getMoney()+200);
+                    PlayerController.getPlayers()[i].setMoney(PlayerController.getPlayers()[i].getMoney() + 200);
                 }
 
                 playerController.moveThePlayer(type, PlayerController.getPlayers()[i].getPosition() / 10, tileController.getPadding());
-                currentPlayer=i;
+                currentPlayer = i;
 
                 statisticsController.
-                        action( PlayerController.getPlayers()[currentPlayer],
+                        action(PlayerController.getPlayers()[currentPlayer],
                                 TileController.getBoard()[PlayerController.getPlayers()[currentPlayer].getPosition()],
                                 buyHotelWindowController,
                                 buyHomeWindowController,
@@ -70,11 +73,10 @@ public class MoveLogic {
                                 playerController,
                                 tileController);
 
-                if(currentPlayer==3) {
+                if (currentPlayer == 3) {
                     displayWindowController.changePlayerInWindow(PlayerController.getPlayers()[0].getType());
-                }
-                else {
-                    displayWindowController.changePlayerInWindow(PlayerController.getPlayers()[currentPlayer+1].getType());
+                } else {
+                    displayWindowController.changePlayerInWindow(PlayerController.getPlayers()[currentPlayer + 1].getType());
                 }
 
                 displayWindowController.changeCardInWindow(PlayerController.getPlayers()[currentPlayer].getPosition());

@@ -25,13 +25,13 @@ public class StatisticsController {
     private final Group handleWindow;
     private final Button buy;
     private final Button skip;
-
+    //sets our statistics window
     StatisticsController(Group inputStatisticsGroup,Group inputBuyPanel,Group inputPayPanel,Group inputHandleWindow) {
         cards = new ImageView[PLAYERS_NUMBER][TILES_POSSIBLE_TO_BUY];
         buyPanel = inputBuyPanel;
         payPanel = inputPayPanel;
         handleWindow = inputHandleWindow;
-
+        //places our cards in blank spaces
         for (int i = 0; i < PLAYERS_NUMBER; i++) {
             for(int j = 0; j < TILES_POSSIBLE_TO_BUY; j++) {
                 ScrollPane scrollPane = (ScrollPane)inputStatisticsGroup.getChildren().get(7 + i);
@@ -40,7 +40,7 @@ public class StatisticsController {
                 cardsIndexes[i][j] = BLANK_CARD_NUMBER;
             }
         }
-
+        //show every player money
         for (int i = 0,k = 2; i < PLAYERS_NUMBER; i++,k++) {
             priceLabels[i]=(Label) ((Group) ((Group) inputStatisticsGroup.getChildren().get(k)).getChildren().get(0)).getChildren().get(3);
         }
@@ -48,7 +48,7 @@ public class StatisticsController {
         buy=(Button) inputBuyPanel.getChildren().get(3);
         skip=(Button) inputBuyPanel.getChildren().get(4);
     }
-
+    //show certain controller on specific Tile
     public void action(Player player,Tile tile, BuyHotelWindowController buyHotelWindowController, BuyHomeWindowController buyHomeWindowController, ChanceController chanceController, CommunityChestController communityChestController, PlayerController playerController, TileController tileController) {
         if(tile.getType()==TileType.START ||
                 tile.getType()==TileType.JUST_VISITING ||
@@ -78,10 +78,6 @@ public class StatisticsController {
             return;
         }
 
-        // nie usuwać zagnieżdżenia ifów! musi być tak zagnieżdżone, bo:
-        // jeśli to jest jego pole i jest to pole normalne to może kupić dom/hotel
-        // jeśli to nie jest jego pole to musi komuś płacić
-        // pole które rozważamy zawsze ma właściciela (patrz poprzedni if)
         if(player == tile.getOwner()) {
             if(tile.getType().toString().contains("NORMAL")) {
                 if (tile.getHomeCounter() < 3 && player.getMoney() > tile.getHomeCost()) {
@@ -95,7 +91,7 @@ public class StatisticsController {
             pay(player, tile);
         }
     }
-
+    //implementation of buying tiles
     private void buy(Player player, Tile tile) {
         if(!tile.hasOwner() && player.getMoney()>tile.getPrice()) {
             mainWindowOff(tile.hasOwner());
@@ -105,8 +101,8 @@ public class StatisticsController {
                         setImage(new Image(Objects.requireNonNull(getClass().
                                 getResourceAsStream("css/images/Cards/Card" + player.getPosition() + ".png"))));
 
-                // sortowanie kart kolorami
-                // żeby stacje kolejowe się sortowały ich numer jest ustawiany w konwencji: NUMER_KARTY * 10
+                //sort cards by colour
+                // in order to sort our railroad stations we seth their number to: CARD_NUMBER * 10
                 if(tile.getType().toString().contains("RAILROAD")){
                     cardsIndexes[player.getType().ordinal()][player.getCardsCounter()] = player.getPosition() * 10;
                 }
@@ -126,7 +122,7 @@ public class StatisticsController {
             skip.setOnMousePressed(e -> mainWindowOn());
         }
     }
-
+    //bubble sort cards indexes
     private void sortCardsIndexes(int playerIndex) {
         for (int i = 0; i < TILES_POSSIBLE_TO_BUY - 1; i++)
             for (int j = 0; j < TILES_POSSIBLE_TO_BUY - i - 1; j++)
@@ -136,7 +132,7 @@ public class StatisticsController {
                     cardsIndexes[playerIndex][j + 1] = temp;
                 }
     }
-
+    //set images of player cards
     public void setImages(int playerIndex) {
         for (int i = 0; i < TILES_POSSIBLE_TO_BUY && cardsIndexes[playerIndex][i] != BLANK_CARD_NUMBER; i++) {
             if(cardsIndexes[playerIndex][i] > 40) {

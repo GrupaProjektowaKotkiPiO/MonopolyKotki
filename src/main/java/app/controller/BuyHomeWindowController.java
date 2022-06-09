@@ -8,10 +8,12 @@ import javafx.scene.control.Button;
 public class BuyHomeWindowController {
     private final Group buyHome;
 
+    //class contructor -> sets the group
     public BuyHomeWindowController(Group buyHome) {
         this.buyHome = buyHome;
     }
 
+    //method that shows us graphic representation of buying home building
     public void show(Player player, Tile tile) {
         buyHomeButtonAction(player, tile);
 
@@ -20,16 +22,19 @@ public class BuyHomeWindowController {
         buyHome.setVisible(true);
     }
 
+    //method which hides our Action button while buying home
     private void skipButtonAction() {
         ((Button) buyHome.getChildren().get(5)).setOnAction(e -> buyHome.setVisible(false));
     }
 
+    //method which shows us how many houses do we have at our tile
+    //and set ownership of the tile
     private void buyHomeButtonAction(Player player, Tile tile) {
         ((Button) buyHome.getChildren().get(4)).setOnAction(e -> {
 
             Group houses = (Group) tile.getTileGroup().getChildren().get(4);
 
-            switch(tile.getHomeCounter()) {
+            switch (tile.getHomeCounter()) {
                 case 0:
                     houses.setVisible(true);
                     houses.getChildren().get(0).setVisible(false);
@@ -43,15 +48,21 @@ public class BuyHomeWindowController {
                     break;
             }
 
-            tile.setHomeCounter(tile.getHomeCounter() + 1);
-            tile.setHomeRent(tile.getRent() + 20 * tile.getHomeCounter());
-
-            player.setMoney(player.getMoney() - tile.getHomeCost());
-            player.setCardsCounter(player.getCardsCounter() + 1);
-            tile.setOwner(player);
-            StatisticsController.displayPlayerBudget(player);
+            setOwnerOfHome(player, tile);
 
             buyHome.setVisible(false);
         });
+    }
+
+    //increments home counter by 1, increases rent,
+    //takes money out of players account and sets ownership of the tile
+    private void setOwnerOfHome(Player player, Tile tile) {
+        tile.setHomeCounter(tile.getHomeCounter() + 1);
+        tile.setHomeRent(tile.getRent() + 20 * tile.getHomeCounter());
+
+        player.setMoney(player.getMoney() - tile.getHomeCost());
+        player.setCardsCounter(player.getCardsCounter() + 1);
+        tile.setOwner(player);
+        StatisticsController.displayPlayerBudget(player);
     }
 }

@@ -9,11 +9,11 @@ public class Player {
     private final Label playersMoneyLabel;
     private int position = 0;
     private int cardsCounter = 0;
-    private int money = 1000;
+    private int money = 1000;   //euro
     private int score;
     private boolean isPlayerInGame = true;
     private int lostQueues = 0; //pozostała ilość straconych kolejek gry -> NIE MA IMPLEMENTACJI
-
+    //class contructor, set image of player, type of player, and connect moneyLabel with player
     public Player(PlayerType inputType, ImageView inputPlayerOnBoard, Label playersMoneyLabel) {
         type = inputType;
         playerOnBoard = inputPlayerOnBoard;
@@ -39,7 +39,7 @@ public class Player {
     public int getMoney() {
         return money;
     }
-
+    //set current player money, when bakrupt, set text in label to "debet"
     public void setMoney(int money) {
         if (!isPlayerInGame()) {
             return;
@@ -62,7 +62,7 @@ public class Player {
     public void setCardsCounter(int cardsCounter) {
         this.cardsCounter = cardsCounter;
     }
-
+    //count players score
     public void countScore() {
         if (money <= 0) {
             score = 0;
